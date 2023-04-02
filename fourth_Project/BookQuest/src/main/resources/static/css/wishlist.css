@@ -1,0 +1,76 @@
+#tabArea1 {
+	width: 1200px;
+	margin: 0 auto;
+	margin-bottom: 100px;  
+}
+
+#tabArea2 {
+	padding-top: 55px;
+	padding-left: 35px;
+	height: 200px;
+	margin: auto;
+	margin-bottom: 3px;
+	border-bottom: 2px solid #DADADA;
+}
+
+#title {
+	font-size: 36px;
+	font-weight: 700;
+}
+
+#titlePoint {
+	color: #5747E6;
+}
+
+#book_box {
+	height: auto;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	padding-top: 30px;	
+}	
+
+#book {
+	width: 150px;
+	height: auto;
+	margin : 0px 25px 40px;
+	display: flex;
+	position: relative;
+}
+
+#bookImage{
+	width: 150px;
+	height: 225px;
+	border-radius: 13px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+	
+}
+
+#bookImageHover{
+	width: 150px;
+	height: 225px;
+	border-radius: 13px;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+	object-fit: cover;
+ 	top: 0px;
+  	left: 0px;
+  	position: absolute;
+  	display: none;
+}
+
+#book:hover >a>img{
+	display: block;
+	opacity: 0.65; /* Set opacity to 50% */
+}
+
+#buttonDone{
+	width: 100px;
+	height: 36px;
+	border-radius: 6px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+}
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Cart')" />
+	<link rel="stylesheet" th:href="@{/css/cart.css}" />
+	<script type="text/javascript" th:src="@{/js/cart.js}"></script>
+
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+
+<body>
+
+	<div th:replace="commonspace :: menu"></div>
+
+	<div id="text_box">
+		<span>장바구니</span>
+	</div>
+
+	<div id="checkbox">
+		<div>
+			<button onclick="toggleSelect()" id="selectAll">전체 해제</button>
+		</div>
+	</div>
+
+	<form th:action="@{/order/buyselect}" method="post" onsubmit="return validForm()">
+		<div id="container">
+			<div id="left">
+				
+				
+				<div th:if="${#lists.isEmpty(cartList)}" style="margin-top: 120px; text-align: center;">
+					<h2>장바구니에	<br> 담긴 상품이 없습니다.</h2>				
+				</div>
+	
+				<div th:each="cart:${cartList}">
+					
+					<div id="book_info" th:each="book:${cart.book}">
+						<div style="margin-right: 18px; margin-top: 27px;">
+							<input type="checkbox" class="myCheckbox" th:name="selectItem" th:value="${cart.cartId}" checked />
+						</div>
+
+						<div>
+							<a th:href="@{/book/detail(book=${book.bookId})}"> <img th:src="@{${book.imagePath}}"
+									title="${book.image}" id="image">
+							</a>
+						</div>
+
+						<div id="title_and_price">
+							<div th:text="${book.title}" id="book_title"></div>
+							<div th:if="${book.discountRate =='0'}" th:id="|price${cart.cartId}|"
+								th:value="${cart.book.price}">
+								<div th:text="${#numbers.formatDecimal(cart.book.price, 0, 'COMMA', 0, 'POINT') + '원'}"
+									id="price"></div>
+							</div>
+							<div th:if="${book.discountRate !='0'}" th:id="|price${cart.cartId}|"
+								th:value="${cart.book.price*(1-cart.book.discountRate*0.01)}">
+								<div th:text="${#numbers.formatDecimal(cart.book.price*(1-cart.book.discountRate*0.01), 0, 'COMMA', 0, 'POINT') + '원'}"
+									id="price"></div>
+							</div>
+						</div>
+
+						<div id="delete_and_quantity_box">
+							<div id="delete_box">
+								<a th:href="@{|/cart/delete/${cart.cartId}|}"> <img th:src="@{/images/x.png}">
+								</a>
+							</div>
+							<br><br><br>
+
+							<div id="quantity_box">
+								<div id="price2">
+									<div th:if="${book.discountRate =='0'}" th:id="|totalprice${cart.cartId}|">
+										[[${#numbers.formatDecimal(cart.book.price*cart.bookQuantity,
+										0, 'COMMA', 0, 'POINT') + '원'}]]</div>
+									<div th:if="${book.discountRate !='0'}" th:id="|totalprice${cart.cartId}|">
+										[[${#numbers.formatDecimal(cart.book.price*(1-cart.book.discountRate*0.01)*cart.bookQuantity,
+										0, 'COMMA', 0, 'POINT') + '원'}]]</div>
+								</div>
+
+
+								<div id="button_box">
+									<div>
+										<button class="DownBtn" type="button" th:value="${cart.cartId}">
+											<img th:src="@{/images/down.png}">
+										</button>
+									</div>
+									<div th:id="|quantity${cart.cartId}|" th:value="${cart.bookQuantity}"
+										style="font-size: 14px; font-weight: 500; margin-top: 4px;">
+										[[${cart.bookQuantity}]]
+									</div>
+									<div>
+										<button class="UpBtn" type="button" th:value="${cart.cartId}">
+											<img th:src="@{/images/up.png}">
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="right">
+				<div class="text-center">
+					<div id="right_box1">
+						<div id="order_price">
+							<span style="font-size: 24px; font-weight: 600;">주문 금액</span>
+						</div>
+
+						<div id="book_price">
+							<span style="float: left; font-size: 15px;">상품 금액</span>
+							<span id="totalPriceForlast">[[${#numbers.formatDecimal(totalPrice,
+								0, 'COMMA', 0, 'POINT') + '원'}]]</span>
+						</div>
+
+						<div>
+							<span style="float: left; font-size: 15px;">배송비</span>
+							<span style="float: right; font-size: 16px;">0원</span>
+						</div>
+					</div>
+
+					<div id="right_box2">
+						<span style="float: left; font-size: 16px; color: #5747E6; padding-top:7px; font-weight: 500;">총
+							결제 금액</span>
+						<span id="totalPriceAndDelivery">
+							[[${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT') + '원'}]]
+						</span>
+					</div>
+
+					<div>
+						<input type="submit" value="주문하기" id="buy_button">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

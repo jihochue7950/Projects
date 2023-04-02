@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/mypage.css}" />
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script type="text/javascript" th:src="@{/js/mypage.js}"></script>
+
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div class="icon_and_title">
+		<div class="icon_box">
+			<img th:src="@{/images/level=5Lv.png}" alt="Level_Icon" width="60" height="65">
+		</div>
+		<div class="level_and_name">
+			<div class="level">
+				<span style="font-size: 12px; margin-right:2px;">5Lv.</span>
+				<span style="color: #5747E6; font-size: 12px; font-weight:500;">열정적인 도서광</span>
+				<img th:src="@{/images/crown.png}" alt="crown" width="13" height="13">
+			</div>
+			<div class="name">
+				<span th:if="${user != null}" th:text="${user.name}"></span>님, 안녕하세요!
+			</div>
+		</div>
+	</div>
+
+	<div class="user_info_box">
+		<div class="my_level">
+			<span style="color: #7D7D7D; font-size: 14px; margin-bottom: 14px;">마이 레벨</span>
+			<span style="font-size: 18px; font-weight: 600;">Lv.5</span>
+		</div>
+		<div class="shipping">
+			<span style="color: #7D7D7D; font-size: 14px; margin-bottom: 14px;">배송중</span>
+			<span style="font-size: 18px; font-weight: 600;">0건</span>
+		</div>
+		<div class="delevered">
+			<span style="color: #7D7D7D; font-size: 14px; margin-bottom: 14px;">배송 완료</span>
+			<span style="font-size: 18px; font-weight: 600;">6건</span>
+		</div>
+		<div class="user_info">
+			<span style="color: #7D7D7D; font-size: 14px;">회원정보</span>
+			<button type="button" class="revise_button">
+				<a th:href="@{|/user/update/${user.userId}|}">변경하기</a>
+			</button>
+		</div>
+		<div class="payment_method">
+			<span style="color: #7D7D7D; font-size: 14px;">결제수단</span>
+			<button type="button" class="payment_button">
+				<a th:href="@{/payment/}">관리하기</a>
+			</button>
+		</div>
+		<div class="order_history">
+			<span style="color: #7D7D7D; font-size: 14px;">주문내역</span>
+			<button type="button" class="order_history_button">
+				<a th:href="@{/order/}">확인하기</a>
+			</button>
+		</div>
+	</div>
+
+	<div>
+		<div style="font-size: 22px; font-weight:600; width:1000px; height: 30px; margin: auto; margin-top: 45px;">독서 통계
+			그래프
+			<button id="category_select_button">버튼</button>
+		</div>
+		<div id="category_select_div" style="display: none; margin-top: 10px;">
+			<label th:each="category : ${listCategories}">
+				<input type="checkbox" name="category_select" th:value="${category}" th:text="${category}" />
+			</label>
+			<button id="apply_button">적용</button>
+			<button id="cancel_button">취소</button>
+		</div>
+	</div>
+
+	<div
+		style="width: 1000px; height: 430px; margin: auto; border:1px solid black; display: flex; align-items: center; margin-top: 20px;">
+		<div style="width: 350px; height: 350px; border: 1px solid red; margin-left: 80px;">
+			<canvas id="radar-chart"></canvas>
+		</div>
+	</div>
+
+	<div style="width: 1020px; height: 370px; margin: auto; margin-top: 15px;">
+		<img th:src="@{/images/mypage1.png}" alt="temporal_image" width="1020" height="370">
+	</div>
+
+	<div style="width: 1025px; height: 350px; margin: auto; margin-top: 50px; margin-bottom: 70px;">
+		<img th:src="@{/images/mypage2.png}" alt="temporal_image" width="1025" height="350">
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+
+</body>
+
+</html>

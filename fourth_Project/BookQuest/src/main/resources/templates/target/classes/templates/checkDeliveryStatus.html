@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('checkDeliveryStatus')" />
+	<link rel="stylesheet" th:href="@{/css/checkDeliveryStatus.css}" />
+	<script type="text/javascript" th:src="@{/js/checkDeliveryStatus.js}"></script>
+
+</head>
+
+<script>
+
+</script>
+
+<body>
+	<div th:replace="commonspace :: menu" />
+
+	<form th:action="@{/admin/checkDeliveryStatus}" method="POST">
+		<div class="container" style="text-align: center;">
+         	<div style="font-size: 42px; font-weight: 600; margin-top: 55px;">판매 내역</div>
+         <br><br>
+
+			<div style="float: right;">
+				<select name="deliveryStatus" onchange="this.form.submit()"
+					style="margin-left: 200px; width: 110px; height: 35px; padding: 0; padding-left: 8px;">
+					<option value="" hidden style="color: #5747E6;">배송상태 선택</option>
+					<option value="배송준비중" th:selected="${deliveryStatus == '배송준비중'}">배송준비중</option>
+					<option value="배송완료" th:selected="${deliveryStatus == '배송완료'}">배송완료</option>
+					<option value="전체" th:selected="${deliveryStatus == '전체'}">전체</option>
+				</select>
+
+
+				<button type="submit" id="changeDeliveryStatus">배송상태 변경</button>
+			</div>
+
+			<table class="title_table">
+				<tr>
+					<th id="user">구매자</th>
+					<th id="orderDate">구매일</th>
+					<th id="orderTime">구매시간</th>
+					<th id="deliveryStatus">배송상태</th>
+					<th id="totalPrice">결제가격</th>
+					<th id="viewDetails">상세보기</th>
+				</tr>
+			</table>
+
+			<div th:each="order,num :${orderList}" class="text-center">
+
+				<table class="user_table">
+					<tr>
+						<td id="user">
+							<div th:text="${order.user.name}" />
+						</td>
+						<td id="orderDate">
+							<div th:text="${#temporals.format(order.orderDate, 'yy-MM-dd')}" />
+						</td>
+						<td id="orderTime">
+							<div th:text="${#temporals.format(order.orderDate, 'HH:mm')}" />
+						</td>
+						<td id="deliveryStatus">
+							<input type="checkbox" th:if="${order.deliveryStatus=='배송준비중'}"
+								th:name="bookToChangeShippingStatus" th:value="${order.orderId}">
+							<span th:text="${order.deliveryStatus}" />
+						</td>
+						<td id="totalPrice">
+							<div th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT') + '원'}" />
+						</td>
+						<td id="viewDetails">
+							<button type="button" id="detailButton"
+								th:onclick="|showOrderDetailTable(${num.index})|">상세보기</button>
+						</td>
+					</tr>
+				</table>
+
+
+				<div th:id="|orderDetailTable${num.index}|" style="display:none; width: 90%; float: right;">
+					<div th:each="orderDetail:${order.orderDetail}" id="bookInfo">
+						<div>
+							<img th:src="@{${orderDetail.book.imagePath}}" title="${orderDetail.book.image}"
+								id="image_box">
+						</div>
+						<div id="titleBox">
+							<div style="font-size: 12px; color: #7D7D7D;">책 제목</div>
+							<div style="font-size: 15px; font-weight: 500;" th:text="${orderDetail.book.title}" />
+						</div>
+						<div id="price">
+							<div style="font-size: 12px; color: #7D7D7D;">가격</div>
+							<div style="font-size: 15px; font-weight: 500;"
+								th:text="${#numbers.formatDecimal(orderDetail.price, 0, 'COMMA', 0, 'POINT') + '원'}" />
+						</div>
+						<div id="quantity">
+							<div style="font-size: 12px; color: #7D7D7D;">수량</div>
+							<div style="font-size: 15px; font-weight: 500;"
+								th:text="${orderDetail.orderQuantity}+'권'" />
+						</div>
+						<div id="orderDetailTotalPrice">
+							<div style="font-size: 12px; color: #7D7D7D;">총 판매 가격</div>
+							<div style="font-size: 15px; font-weight: 500;"
+								th:text="${#numbers.formatDecimal(orderDetail.price*orderDetail.orderQuantity, 0, 'COMMA', 0, 'POINT') + '원'}" />
+						</div>
+					</div>
+				</div>
+
+				<table>
+					<tr></tr>
+				</table>
+
+			</div>
+			<!--orderList 반복문 끝-->
+		</div>
+		<!--컨테이너 끝-->
+	</form>
+
+
+	<div style="margin-bottom: 77px;"></div>
+
+	<div th:replace="commonspace :: footer" />
+
+</body>
+
+</html>

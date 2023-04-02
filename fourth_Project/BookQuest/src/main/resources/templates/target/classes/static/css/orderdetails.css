@@ -1,0 +1,180 @@
+.title_box {
+	display: flex;
+	align-items: flex-end;
+	margin: auto;
+	width: 1100px;
+	height: 100px;
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.container {
+	margin-bottom: 150px;
+}
+
+.detail_button {
+	width: 90px;
+	height: 34px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+}
+
+.detail_title_box {
+	border-bottom: 1px solid black;
+	display: flex;
+	align-items: flex-end;
+	padding-bottom: 20px;
+	margin: auto;
+	width: 1100px;
+	height: 125px;
+	font-size: 36px;
+	font-weight: 700;
+}
+
+.orderdetail_container {
+	width: 1100px;
+	margin: auto;
+	margin-bottom: 20px;
+}
+
+.orderdetail_list {
+	width: 100%;
+	height: 185px;
+	border-bottom: 1px solid #DADADA;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.totalPrice_and_exchangeButton {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.image_and_title {
+	width: 300px;
+	height: 136px;
+	display: flex;
+	float: left;
+	align-items: center;
+}
+
+.image {
+	margin-right: 25px;
+}
+
+#img {
+	width: 100px;
+	height: 100%;
+	border-radius: 12px;
+}
+
+.book_title_box {
+	width: 177px;
+	height: 65px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.book_title {
+	font-size: 17px;
+	font-weight: 600;
+}
+
+.price_and_quantity {
+	width: 340px;
+	height: 18px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.price {
+	width: 138px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.quantity {
+	width: 85px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.totalPrice_and_exchangeButton {
+	width: 120px;
+	height: 73px;
+	display: flex;
+	flex-direction: column;
+	padding-top: 11px;
+}
+
+.totalPrice {
+	width: 100%;
+	height: 20px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 8px;
+}
+
+.exchangeButton {
+	width: 85px;
+	height: 30px;
+	background-color: white;
+	border: 1px solid #5747E6;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+	color: #5747E6;
+	font-size: 16px;
+	font-weight: 500;
+	margin-right: 32px;
+}
+
+.cancel_button_box {
+	margin: auto;
+	width: 1100px;
+	height: 120px;
+}
+
+.cancel_button {
+	float: right;
+	width: 90px;
+	height: 35px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 10px;
+}
+
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid rgb(255, 255, 255);
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: rgb(255, 255, 255);
+}

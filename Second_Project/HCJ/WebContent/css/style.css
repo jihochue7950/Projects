@@ -1,0 +1,12 @@
+@charset "EUC-KR";
+
+h2 {
+  font-family: "Sofia", sans-serif;
+  font-variant: small-caps;
+  color: gray; 
+  font-size: 60px;
+}
+
+#idinput{
+	width:27%
+}	

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/login.css}" />
+
+	<!-- 카카오 로그인 스크립트 -->
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<!--rest API Key-->
+	 <div th:with="client_id='9746c6479208e369f43bef1b3570952b'">
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div id="login_box1">
+		<form th:action="@{/login}" method="post" style="max-width: 350px; margin: 0 auto;">
+			<div th:if="${param.error}">
+				<p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
+			</div>
+
+			<div th:if="${param.logout}">
+				<p class="text-warning">로그아웃 되었습니다.</p>
+			</div>
+
+
+			<div id="login_box2">
+				<h1 style="font-size: 36px; font-weight: 600;">로그인</h1>
+				<h2 style="font-size: 14px; color: #7D7D7D; font-weight: 400;">Book Quest와 함께 탐험을 떠나보세요!
+					<img th:src="@{/images/sparkles.png}" style="width:15px; height:15px;">
+				</h2>
+			</div>
+
+			<div id="login_box3">
+				<div id="login_box3-1">
+					<p><input type="text" id="email" name="email" placeholder="아이디" class="form-control" required /></p>
+					<p><input type="password" id="password" name="password" placeholder="비밀번호" class="form-control" required />
+					</p>
+				</div>
+		
+				<div id="login_box3-2">
+					<a th:href="'https://kauth.kakao.com/oauth/authorize?client_id='+ ${client_id} +'&redirect_uri=http://localhost:4444/BookQuest/sign/kakao&response_type=code'">
+						<img th:src="@{/images/kakao_login.png}" alt="카카오계정 로그인" width="100%" style="margin-bottom: 10px;" />
+					</a>
+
+					<button type="submit" id="login_button" value="login">로그인</button>
+					<div id="signup_box">
+						<span>신규 회원이신가요? <a th:href="@{/sign/}">회원가입</a> </span>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

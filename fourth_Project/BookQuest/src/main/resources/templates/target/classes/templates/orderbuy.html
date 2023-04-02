@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('buyInfoDetails')" />
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<link rel="stylesheet" th:href="@{/css/orderbuy.css}" />
+	<script type="text/javascript" th:src="@{/js/orderbuy.js}"></script>
+	<script type="text/javascript" th:src="@{/js/kakaoAdress.js}"></script>
+	
+	<!--kakaoPay.jsp 생성-->
+	<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
+	<!--결제모듈-->
+	<script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
+</head>
+
+<script>
+
+	$(document).ready(function () {
+		//페이먼트 모달
+		document.getElementById("modal_opne_btn").onclick = function () {
+			$('#modalDialog').modal();
+		}; 
+		
+		//주소 모달창
+		$('#addAddress').click(function () {
+			$('#modalDialogAdress').modal();
+		});
+	});
+
+	function addadressForuser(useraddress) {
+
+		console.log($("#sample6_address").val())
+		if (!$("#sample6_address").val()) {
+			alert("우편번호 찾기를 진행해 주세요")
+			return;
+		}
+		if (!$("#sample6_detailAddress").val()) {
+			alert("상세 주소를 작성해 주세요")
+			return;
+		}
+
+		url = "[[@{/add/address}]]";
+		number = ($('option').length + 1);
+		console.log($('option').length);
+		console.log(number);
+		csrfValue = $("input[name='_csrf']").val();
+		console.log(csrfValue);
+		params = {useraddress: useraddress, _csrf: csrfValue, number: number};
+
+		$.post(url, params, function (response) {
+
+			$("#close").click();
+			$('#select3').html($('#select3').html() + '<option id="address' + ($('option').length + 1) + '" value="' + response + '">' + response + '</option>');
+
+			if ($('option').length >= 3) {
+				$("#addAddress").remove();
+			}
+
+			$("#sample6_postcode").val("");
+
+			$("#sample6_extraAddress").val("");
+		}).fail(function () {
+			alert("fefef");
+		})
+	}
+</script>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div id="title_box1">
+		<span>주문/결제</span>
+	</div>
+
+	<div id="title_box2">
+		<span>주문 상품 정보</span>
+	</div>
+
+	<div id="order_box1">
+
+		<div id="left">
+			<div th:each="book, i: ${bookdetail}">
+				<div style="padding-top: 10px;">
+					<div id="book_title" style="margin: auto; margin-bottom: 3px;">제목:&nbsp;&nbsp;[[${book.title}]]
+					</div>
+					<div id="author_name" style="margin-bottom: 8px;">작가:&nbsp;&nbsp; [[${book.author}]]</div>
+				</div>
+
+				<div th:text="${#numbers.formatDecimal(book.price, 0, 'COMMA', 0, 'POINT') + '원'}"
+					style="color: #5747E6; border-bottom: 1px solid #DADADA; padding-bottom: 10px; font-weight:600;">
+				</div>
+			</div>
+		</div>
+		<div id="right">
+			<div th:each="bookquantity:${bookquantity}">
+				<div
+					style="height:88.8px ; text-align: right; border-bottom: 1px solid #DADADA; font-size:14px; color:#7D7D7D">
+					[[${bookquantity}]]권</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="order_total_price_box">
+		<div id="total_price_text_box">총 결제 금액</div>
+
+		<div id="total_price" th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT') + '원'}">
+		</div>
+	</div>
+	<br><br>
+	<div id="delivery_box">
+
+		<div id="delivery_textbox">배송지 정보 입력
+			<button th:if="${user.address3==null}" style="float:right" id="addAddress">+ 주소 추가</button>
+		</div>
+
+
+		<form th:action="@{/order/orderbuy}" th:object="${orders}" method="post">
+			<div th:each="book:${bookdetail}">
+				<input type="hidden" th:value="${book.bookId}" name="bookId" />
+			</div>
+			<div th:each="bookquantitys:${bookquantity}">
+				<input type="hidden" th:value="${bookquantitys}" name="bookquantity" />
+			</div>
+			<input type="hidden" th:field="*{orderId}" /> <input type="hidden" th:value="${totalPrice}"
+				name="totalPrice" />
+
+			<div id="delivery_info">
+				<div id="info_firstline">
+					<div id="delivery_info1">
+						<div style="margin-top: 4px;">배송지 선택</div>
+						<div>
+							<input type="text" placeholder="집" id="select1" />
+						</div>
+					</div>
+
+					<div id="delivery_info2">
+						<div style="margin-top: 4px;">주문인</div>
+						<div>
+							<input type="text" th:field="*{user.name}" placeholder="이름" id="select2" />
+						</div>
+					</div>
+				</div>
+
+				<div id="info_secondline">
+					<div id="delivery_info3">
+						<div style="margin-top: 4px;">주소</div>
+						<div>
+
+							<select id="select3" th:field="*{address}">
+								<option id="address1" th:value="${user.address1}" th:text="${user.address1}"></option>
+								<option id="address2" th:if="${user.address2!=null}" th:value="${user.address2}"
+									th:text="${user.address2}"></option>
+								<option id="address3" th:if="${user.address3!=null}" th:value="${user.address3}"
+									th:text="${user.address3}"></option>
+							</select>
+						</div>
+					</div>
+
+					<div id="delivery_info4">
+						<div style="margin-top: 4px;">핸드폰 번호</div>
+						<div>
+							<input type="text" th:field="*{user.phone}" placeholder="핸드폰 번호" id="select4" />
+						</div>
+					</div>
+				</div>
+			</div>
+						
+			<div id="payment_top">
+				<div id="delivery_textbox">결제수단 선택</div>
+				<div id="root">
+					<button type="button" id="modal_opne_btn" class="addPaymentButton">+ 결제수단 추가</button>
+				</div>
+			</div>
+		
+			<div id="payment_select">
+				<th:block th:each="payment: ${paymentList}">
+					<input type="checkbox" th:field="*{payment}" th:value="${payment.paymentId}"
+						th:text="${payment.bank}" id="checkbox" style="margin-left: 15px;" />
+				</th:block>
+			</div>
+			
+			
+			<div>여기인가?</div>
+			
+			<hr>
+
+
+			
+			<div id="button_box">
+<!--				<form method="post" action="/kakaoPay">
+					<button>카카오페이로 결제하기</button>
+				</form>-->
+				<input type="button" value="취소" id="buttonCancel" onclick="history.back()" />
+				<input type="submit" value="결제하기" id="buttonPayment" onclick="return validateForm()">
+			</div>
+			
+		</form>
+	</div>
+
+	<div class="modal fade text-center" id="modalDialogAdress">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title" id="modalTitle">주소지 추가</h4>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<span id="modalBody">
+
+						<p>
+							<input type="text" id="sample6_postcode" placeholder="우편번호" class="form-control" required
+								readonly>
+							<input type="button" id="address_button" onclick="sample6_execDaumPostcode()" required
+								value="우편번호 찾기"><br>
+							<input type="text" id="sample6_address" class="form-control" placeholder="상세주소" readonly
+								required>
+							<input type="text" id="sample6_detailAddress" placeholder="상세주소 입력" class="form-control"
+								required>
+							<input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form-control"
+								readonly>
+						</p>
+						<div class="modal-footer">
+							<button type="button" class="cancel_button" id="close" data-dismiss="modal">취소</button>
+							<button type="button" id="addaddress" class ="save_button"
+								onclick="event.stopPropagation(); addadressForuser($('#sample6_address').val());">저장</button>
+						</div>
+
+					</span>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<div class="modal fade text-center" id="modalDialog">
+		<form id="asdasdasd" th:action="@{/payment/save}" th:object="${payment}" method="POST">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h4 class="modal-title" id="modalTitle"></h4>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body">
+
+
+						<input type="hidden" th:field="*{paymentId}" />
+
+						<div>
+							카드를 입력해주세요
+							<input type="text" th:field="*{bank}" id="bank" placeholder="카드명" required>
+						</div>
+
+						<div>
+							카드번호를 입력해주세요
+							<input type="text" th:field="*{accountNumber}" id="accountnumber" placeholder="카드번호"
+								minlength="16" maxlength="16" required>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="cancel_button" data-dismiss="modal">취소</button>
+						<button type="submit" class ="save_button" value="Save">저장</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

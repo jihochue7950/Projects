@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="commonspace :: page_head('Home - Shope Admin')"/>
+
+<body>
+
+	<div th:replace="commonspace :: menu"/>
+<div class="container">		
+	<h1>Generic Error - <span th:text="${status}">Status</span></h1>
+  <p>Sorry for the inconvenience. Please contact the administrator.</p>
+  <br/>
+  <ul>
+    <li>Timestamp: <span th:text="${timestamp}">Timestamp</span></li>
+    <li>Path: <span th:text="${path}">Path</span></li>
+    <li>Error: <span th:text="${error}">Error</span></li>
+  </ul>
+	<div class="m-3">
+		<h2>Sorry, the server has encountered an error while processing your request</h2>
+		<h3>죄송합니다. 요청을 처리하는 동안 서버에 오류가 발생했습니다.</h3>
+	</div>
+
+	<div th:replace="commonspace :: footer"/>
+</div>
+</body>
+
+</html>

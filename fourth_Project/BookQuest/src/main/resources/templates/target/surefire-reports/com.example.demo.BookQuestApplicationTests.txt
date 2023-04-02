@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.example.demo.BookQuestApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.077 s <<< FAILURE! - in com.example.demo.BookQuestApplicationTests
+testUpdateEncodePassword  Time elapsed: 0.155 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "com.example.demo.entity.User.setPassword(String)" because "user" is null
+	at com.example.demo.BookQuestApplicationTests.testUpdateEncodePassword(BookQuestApplicationTests.java:75)
+

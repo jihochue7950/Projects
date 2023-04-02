@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head th:replace="commonspace :: page_head('Home - Shope Admin')"/>
+
+<body>
+
+	<div th:replace="commonspace :: menu"/>
+<div class="container">	
+
+  <h1><span class="label label-default">Resource Not Found Error - 404</span></h1>
+
+  <p>Requested resource was not found. Please contact the administrator.</p>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <td>Timestamp</td>
+      <td th:text="${timestamp}">Timestamp</td>
+    </tr>
+    <tr>
+      <td>Path</td>
+      <td th:text="${path}">Path</td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td th:text="${status}">Status</td>
+    </tr>
+    <tr>
+      <td>Error</td>
+      <td th:text="${error}">Error</td>
+    </tr>
+    <tr>
+      <td>Message</td>
+      <td th:text="${message}">Message</td>
+    </tr>
+  </table>
+  </div>	
+		
+	<div class="m-3">
+		<h2>Sorry, the requested page could not be found</h2>
+		<h3>죄송합니다. 요청한 페이지를 찾을 수 없습니다.</h3>
+	</div>
+
+	<div th:replace="commonspace :: footer"/>
+</div>
+</body>
+
+</html>

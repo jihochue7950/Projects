@@ -1,0 +1,296 @@
+#title_box1 {
+	width: 800px;
+	height: 165px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #DADADA;
+	font-weight: 900;
+	font-size: 36px;
+}
+
+#title_box2 {
+	width: 800px;
+	height: 97px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid black;
+	font-weight: 600;
+	font-size: 20px;
+}
+
+#order_box1 {
+	width: 800px;
+	display: flex;
+	margin: auto;
+	justify-content: space-between;
+}
+
+#left {
+	width: 90%;
+}
+
+#right {
+	width: 10%;
+}
+
+#book_info {
+	width: 300px;
+	height: 41px;
+}
+
+#book_title {
+	width: 100%;
+	height: 18px;
+	font-weight: 600;
+	font-size: 15px;
+	margin-bottom: 8px;
+}
+
+#author_name {
+	width: 100%;
+	height: 15px;
+	font-size: 13px;
+}
+
+#order_count_and_price_box {
+	width: 118px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#order_count {
+	font-size: 14px;
+	color: #7D7D7D;
+	float: left;
+	margin-right: 4px;
+}
+
+#order_price {
+	font-size: 20px;
+	font-weight: 500;
+	float: right;
+}
+
+#order_total_price_box {
+	width: 800px;
+	height: 89px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 3px solid #DADADA;
+	margin-bottom: 40px;
+	margin: auto;
+}
+
+#total_price_text_box {
+	font-size: 16px;
+	color: #776AEA;
+	font-weight: 600;
+	width: 81px;
+	height: 20px;
+}
+
+#total_price {
+	justify-content: space-between;
+	font-size: 24px;
+	font-weight: 600;
+	height: 30px;
+}
+
+#delivery_box {
+	width: 800px;
+	height: 270px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 150px;
+}
+
+#delivery_textbox {
+	font-size: 20px;
+	height: 25px;
+	font-weight: 700;
+	float: left;
+	margin-bottom: 25px;
+}
+
+#delivery_info {
+	width: 100%;
+	height: 120px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+#info_firstline,
+#info_secondline {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+
+#delivery_info1,
+#delivery_info2,
+#delivery_info3,
+#delivery_info4 {
+	width: 376px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 48%;
+	margin-bottom: 20px;
+}
+
+#select1,
+#select2,
+#select3,
+#select4 {
+	border-radius: 6px;
+	border: 1px solid #DADADA;
+	width: 270px;
+	height: 34px;
+	padding-left: 8px;
+}
+
+#payment_select {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-right: auto;
+}
+
+#checkbox {
+	width: 17px;
+	height: 17px;
+	margin-right: 4px;
+	margin-top: 2px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+#button_box {
+	float: right;
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+	width: 180px;
+	height: 36px;
+}
+
+#buttonCancel {
+	border-radius: 6px;
+	background-color: white;
+	border: 1px solid #5747E6;
+	color: #5747E6;
+	width: 70px;
+	height: 36px;
+}
+
+#buttonPayment {
+	border-radius: 6px;
+	background-color: #5747E6;
+	border: 1px solid white;
+	color: white;
+	width: 99px;
+	height: 36px;
+}
+
+#address_button {
+	FONT-WEIGHT: 400;
+	width: 40px;
+	height: 38px;
+	background-color: #5747E6;
+	border-radius: 6px;
+	color: white;
+	border: none;
+	font-size: 14px;
+}
+
+#addAddress {
+	FONT-WEIGHT: 400;
+	width: 100px;
+	height: 38px;
+	background-color: #FFFFFF;
+	border-radius: 6px;
+	color: #5747E6;
+	border: none;
+	font-size: 15px;
+}
+
+#payment_top{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.addPaymentButton{
+	FONT-WEIGHT: 400;
+	width: 110px;
+	height: 38px;
+	background-color:#FFFFFF;
+	border-radius: 6px;
+	color: #5747E6;
+	border: none;
+	font-size: 15px;
+}
+
+#sample6_postcode {
+	width: 69%;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+
+#sample6_postcode+input {
+	width: 27%;
+	margin-left: 3%;
+	display: inline-block;
+	vertical-align: middle;
+	margin-bottom: 5px;
+}
+
+#sample6_address {
+	margin-bottom: 5px;
+}
+
+#sample6_detailAddress {
+	width: 50%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#sample6_extraAddress {
+	width: 48%;
+	margin-left: 1%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.save_button {
+	width: 55px;
+	height: 30px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+}
+
+.cancel_button {
+	width: 55px;
+	height: 30px;
+	background-color: white;
+	color: #5747E6;
+	border: 2px solid #5747E6;
+	border-radius: 6px;
+}
+
+input[readonly] {
+  background-color: #fff;
+}
+

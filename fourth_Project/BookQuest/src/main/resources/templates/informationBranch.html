@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Information Branch')" />
+	<script type="text/javascript" th:src="@{/js/kakaoMap.js}"></script>
+	<link rel="stylesheet" th:href="@{/css/informationBranch.css}" />
+
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+	<div id="topContainer">
+		<div class="branch_info_box">
+			<div class="branch_info">
+				<div class="branch_name">
+					<div>
+						<img th:src="@{/images/location.png}" style="width: 35px; height: 35px; margin-right: 5px;">
+					</div>
+					<div style="padding-top:4px;">
+						[[${branchInformation.branchName}]]
+					</div>
+				</div>
+
+				<div class="branch_info_detail">
+					매장 주소 | [[${branchInformation.branchAddress}]]<br> 영업
+					시간 | 10:00~22:00<br> 휴점 | 설(당일),추석(당일)
+				</div>
+			</div>
+			<div id="map"></div>
+		</div>
+
+		<div>
+			<img id="branchImage" th:src="@{/images/bookstore1.png}">
+		</div>
+
+		<input type="hidden" id="lat" th:value="${branchInformation.latitude}" />
+		<input type="hidden" id="lng" th:value="${branchInformation.longitude}" />
+
+		<script>
+			var lat = $("#lat").val();
+			var lng = $("#lng").val();
+			initMap(lat, lng)
+		</script>
+		
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

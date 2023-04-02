@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/book.css}" />
+	<link rel="stylesheet" th:href="@{/css/home.css}" />
+
+</head>
+<script>
+	function putonitem() {
+		// 확인 메시지 띄우기
+		if (confirm("장바구니에 담으시겠습니까 ?")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div style="display: flex; justify-content: center; margin: 0 auto;">
+		<div id="category">
+			<div th:if="${listCategories != null}" id="categoriesMenu">
+				<div th:each="cat : ${listCategories}">
+					<a th:href="@{'/book/' + ${theme} + '/page/1'(sortField=${sortField}, sortDir=${sortDir}, category=${cat.categoryId})}"
+						style="font-size: 0.8rem;">
+						<div th:text="${cat.name}" />
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="wrapper">
+			<div id="tabArea1">
+				<div id="tabArea2">
+					<div style="font-size: 36px; font-weight: 500; margin-bottom: 3px; ">[[${pagetitle}]]</div>
+
+					<div style="font-size: 14px; display: flex; align-items: center; margin-left: 5px; color: #7D7D7D;">
+						[[${introduce}]] <img th:src="@{/images/fire.png}"
+							style="width: 15px; height: 12px; margin-left: 2px;">
+					</div>
+				</div>
+
+				<div id="searchFilter">
+					<a th:if="${sortField != 'title'}"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=title, sortDir=${sortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						제목</a>
+					<a th:if="${sortField == 'title'}" style="color:#5747E6"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=title, sortDir=${reverseSortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						제목</a>
+					<span th:if="${sortField == 'title'}"
+						th:utext="${sortDir == 'asc' ? '<sup>A - ㅎ</sup>' : '<sub>ㅎ - A</sub>'}"></span>
+					&nbsp;&nbsp;
+					<a th:if="${sortField != 'author'}"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=author, sortDir=${sortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						작가
+					</a>
+					<a th:if="${sortField == 'author'}" style="color:#5747E6"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=author, sortDir=${reverseSortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						작가
+					</a>
+					<span th:if="${sortField == 'author'}"
+						th:utext="${sortDir == 'asc' ? '<sup>A - ㅎ</sup>' : '<sub>ㅎ - A</sub>'}">
+					</span>
+					&nbsp;&nbsp;
+					<a th:if="${sortField != 'price'}"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=price, sortDir=${sortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						가격순</a>
+					<a th:if="${sortField == 'price'}" style="color:#5747E6"
+						th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage}(sortField=price, sortDir=${reverseSortDir},keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">
+						가격순</a>
+					<span th:if="${sortField == 'price'}"
+						th:utext="${sortDir == 'asc' ? '<sup>낮은순</sup>' : '<sub>높은순</sub>'}">
+					</span>
+				</div>
+			</div>
+
+			<div id="book_search_box">
+				<form th:action="@{'/book/' + ${theme} + '/page/1'}">
+					<input type="hidden" name="sortField" th:value="${sortField}" />
+					<input type="hidden" name="sortDir" th:value="${sortDir}" />
+					<div th:if="${category != null}">
+						<input type="hidden" name="category" th:value="${category.categoryId}" />
+					</div>
+					<div style="position: relative; display: inline-block;">
+						<input id="book_search" type="search" name="keyword" th:value="${keyword}"
+							placeholder="도서명 검색하기" required />
+					</div>
+					<button type="submit" id="book_search_button">
+						검색
+						<!--<img th:src="@{/images/search_icon.png}"
+                     style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); margin-right:12px;">-->
+					</button>
+				</form>
+			</div>
+			
+			<div th:if="${cartMessage != null}" class="alert alert-success text-center">
+				[[${cartMessage}]]
+			</div>
+			
+			<div id="book_box">
+				<div th:each="book : ${books}">
+					<div id="booklist">
+						<div class="book">
+							<div id="image_box">
+								<a th:href="@{/book/detail(book=${book.bookId})}"> <img th:src="@{${book.imagePath}}"
+										title="${book.image}" />
+								</a>
+							</div>
+
+							<div id="book_info">
+								<div id="book_info2">
+									<div th:text="${book.title}"
+										style="font-size: 24px; font-weight: 600; margin-bottom: 16px; height: 30px;">
+									</div>
+
+									<div style="display:flex; align-items:center; margin-bottom: 5px;">
+										<div th:if="${book.avgStar == 0}">
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+										</div>
+										<div th:if="${book.avgStar >= 1 and book.avgStar <2}">
+											<span class="star">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+										</div>
+										<div th:if="${book.avgStar >=2 and book.avgStar < 3}">
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+										</div>
+										<div th:if="${book.avgStar >=3 and book.avgStar < 4}">
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+										</div>
+										<div th:if="${book.avgStar >=4 and book.avgStar < 5}">
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="unstar">&#x2605;</span>
+										</div>
+										<div th:if="${book.avgStar ==5}">
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+											<span class="star">&#x2605;</span>
+										</div>
+
+										<div th:text="${#numbers.formatDecimal(book.avgStar, 1, 2)}"
+											style="width:111px; height:16px; margin-left: 7px; font-size:12px;">
+										</div>
+									</div>
+									<div
+										style="margin-bottom: 16px; display: flex; justify-content: flex-start; align-items: center;">
+										<div th:text="${book.author}" style="font-size: 14px; margin-right: 10px;">
+										</div>
+										<div style="font-size: 14px;">|</div>
+										<div th:text="${book.publisher}" style="font-size: 14px; margin: 0 10px;"></div>
+										<div style="font-size: 14px;">|</div>
+										<div th:text="${book.publicationDate}"
+											style="font-size: 14px; margin-left: 10px;"></div>
+									</div>
+
+
+									<div style="height: 68px;">
+										<div style="display: flex; align-items: center;">
+											<div
+												style="margin-top: 2px; margin-right: 10px; font-size: 14px; color: #7D7D7D">
+												새상품 판매가</div>
+											<div th:id="${book.discountRate == null or book.discountRate == 0} ? 'originalPrice' : 'preDiscountPrice'"
+												th:text="${#numbers.formatDecimal(book.price, 0, 'COMMA', 0, 'POINT') + '원'}">
+											</div>
+										</div>
+
+										<div style="display: flex; align-items: center;"
+											th:unless="${book.discountRate == null  or book.discountRate == 0}">
+											<div
+												style="margin-top: 2px; margin-right: 10px; font-size: 14px; color: #7D7D7D">
+												할인 판매가</div>
+											<div id="discountPrice"
+												th:text="'→ ' + ${#numbers.formatDecimal(book.price*(100-book.discountRate)/100, 0, 'COMMA', 0, 'POINT')} + '원' +' ('+ ${book.discountRate} + '% 할인)'" />
+											<th:block th:each="bookbranch : ${bookbranch}">
+												<div th:if="${bookbranch!=null}"
+													th:text="재고수량+${bookbranch.quantity}+권"></div>
+												<div th:text="${bookbranch.branches.branchName}"></div>
+											</th:block>
+										</div>
+									</div>
+								</div>
+								<div th:text="${book.description}" id="book_description"></div>
+							</div>
+						</div>
+
+						<div id="button_box">
+							<form th:action="@{/cart/save}" th:object="${cart}" method="POST">
+								<input type="hidden" th:value="1" name="number" />
+								<input type="hidden" th:value="${book.bookId}" name="book" />
+								<input type="hidden" th:value="${theme}" name="theme" />
+								<button type="submit" style="margin-bottom: 10px;" id="cart"
+									onclick="return putonitem();">장바구니</button>
+							</form>
+
+							<form th:action="@{|/order/buyselect|}" method="POST">
+								<input type="hidden" name="book" th:value="${book.bookId}" /> <input type="hidden"
+									name="bookquantity" th:value="1" />
+								<button type="submit" id="buy">구매하기</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div th:if="${totalPages > 1}" style="margin: auto; margin-top: 20px;">
+				<nav>
+					<ul class="pagination justify-content-center pagination-xs">
+						<li th:class="${currentPage != 1 ? 'page-item active' : 'page-item disabled'}">
+							<a class="page-link"
+								th:href="@{'/book/' + ${theme} + '/page/1'(sortField=${sortField}, sortDir=${sortDir}, keyword=${keyword}, category=${category}, category=${category == null ? '' : category.categoryId})}">&laquo;First</a>
+						</li>
+						<li th:class="${currentPage > 1 ? 'page-item' : 'page-item disabled'}">
+							<a class="page-link"
+								th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage-1}(sortField=${sortField}, sortDir=${sortDir}, keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">Previous</a>
+						</li>
+						<li th:class="${currentPage != i ? 'page-item' : 'page-item active'}"
+							th:each="i : ${#numbers.sequence(startPartPage,endPartPage)}">
+							<!--<a class="page-link" th:href="@{/users/{i}(i=${i})}" th:text = "${i}"></a>-->
+							<a class="page-link"
+								th:href="@{'/book/' + ${theme} + '/page/'+${i}(sortField=${sortField}, sortDir=${sortDir}, keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">[[${i}]]</a>
+						</li>
+						<li th:class="${currentPage < totalPages ? 'page-item' : 'page-item disabled'}">
+							<a class="page-link"
+								th:href="@{'/book/' + ${theme} + '/page/' + ${currentPage+1}(sortField=${sortField}, sortDir=${sortDir}, keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">Next</a>
+						</li>
+						<li th:class="${currentPage != totalPages ? 'page-item active' : 'page-item disabled'}">
+							<a class="page-link"
+								th:href="@{'/book/' + ${theme} + '/page/' + ${totalPages}(sortField=${sortField}, sortDir=${sortDir}, keyword=${keyword}, category=${category == null ? '' : category.categoryId})}">Last&raquo;</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+			<div th:if="${totalItems > 0}" style="margin: auto; margin-top: 20px; margin-bottom: 50px;">
+				<span>Showing Books # [[${startCount}]] to [[${endCount}]] of [[${totalItems}]]</span>
+			</div>
+
+			<div th:unless="${totalItems > 0}" style="margin: auto; margin-top: 20px; margin-bottom: 50px;">
+				<span>No Books found</span>
+			</div>
+		</div>
+	</div>
+
+	<!-- <div th:if="${listCategories == null}" style="width: 100%;
+            border: 1px solid powderblue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px;"></div> -->
+
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

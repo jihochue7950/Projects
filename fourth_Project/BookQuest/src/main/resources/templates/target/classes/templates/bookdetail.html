@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/bookdetail.css}" />
+	<script type="text/javascript" th:src="@{/js/bookdetail.js}"></script>
+	<meta name="_csrf" th:content="${_csrf.token}" />
+	<meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+</head>
+
+<script>
+
+	$(document).ready(function () {
+		
+		//reviewCrud를 하고난 이후에는 리뷰창이 책정보보다 먼저 보일수 있도록
+		if("[[${reviewCrud}]]" == "reviewCrud"){
+			openTab(event, 'review');
+		}	
+
+		$("#wish").click(function () {
+			var token = $("meta[name='_csrf']").attr("content");
+			var header = $("meta[name='_csrf_header']").attr("content");
+			bookId = this.value;
+			$.ajax({
+				type: 'POST',
+				url: '/BookQuest/wish',
+				headers: {"content-type": "application/json"},
+				dataType: 'json',
+				data: JSON.stringify(bookId),
+				beforeSend: function (xhr) {
+					xhr.setRequestHeader(header, token);
+				},
+				success: function (response) {
+					console.log(response);
+					check = JSON.parse(response);
+					if (check == 0) {
+						$("#wishimage").attr("src", "[[@{/images/heart-outline2.png}]]")
+					} else if (check == 1) {
+						$("#wishimage").attr("src", "[[@{/images/heart-outline1.png}]]");
+					}
+				},
+				error: function () {alert("error")} // 에러가 발생했을 때, 호출될 함수
+			});
+
+		});
+	});
+</script>
+
+
+<body>
+	<div th:replace="commonspace :: menu" />
+
+	<div id="book_box1">
+		<div id="book_box2">
+			<div id="book_image_box" th:each="book : ${bookdetail}">
+				<img id="book_image" th:src="@{${book.imagePath}}" title="${book.image}">
+			</div>
+
+			<div id="bundle_book_box">
+				<div id="bundle_book_box2">
+					<div id=bundle_book_box3>
+						<div th:text="${book.category.name}"
+							style="width: 250px; height: 16px; font-size: 13px; margin-bottom:3px;" />
+						<div th:text="${book.title}"
+							style="width: 315px; height: 30px; font-size: 24px; font-weight: 600;" />
+					</div>
+					<div style="display:flex; align-items:center; margin-bottom: 5px;">
+						<div th:if="${not #ctx.containsVariable('avgstar')}">
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</div>
+						<div th:if="${avgstar >=0 and avgstar < 1}">
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</div>
+						<div th:if="${avgstar >=2 and avgstar < 3}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</div>
+						<div th:if="${avgstar >=3 and avgstar < 4}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</div>
+						<div th:if="${avgstar >=4 and avgstar < 5}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</div>
+						<div th:if="${avgstar ==5}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+						</div>
+						<div th:if="${not #ctx.containsVariable('avgstar')}">
+							<div style="width:111px; height:16px; margin-left: 7px; font-size:12px;">(0.0)</div>
+						</div>
+						<div th:unless="${not #ctx.containsVariable('avgstar')}">
+							<div style="width:111px; height:16px; margin-left: 7px; font-size:12px;">
+								<span th:text="'('+ ${#numbers.formatDecimal(avgstar, 1, 2)} + ')'"></span>
+							</div>
+						</div>
+					</div>
+
+					<div
+						style="width: 250px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+						<div th:text="${book.author}" style="font-size: 14px;"></div>
+						<div style="font-size: 14px;">|</div>
+						<div th:text="${book.publisher}" style="font-size: 14px;"></div>
+						<div style="font-size: 14px;">|</div>
+						<div th:text="${book.publicationDate}" style="font-size: 14px;"></div>
+					</div>
+
+
+
+					<div style="display: flex; align-items: center;">
+						<div style="margin-right: 10px; font-size: 16px; color: #7D7D7D">새상품 판매가</div>
+						<div th:id="${book.discountRate == null or book.discountRate == 0} ? 'originalPrice' : 'preDiscountPrice'"
+							th:text="${#numbers.formatDecimal(book.price, 0, 'COMMA', 0, 'POINT')} + '원'"></div>
+					</div>
+					<div style="display: flex; align-items: center;">
+						<div th:unless="${book.discountRate == null  or book.discountRate == 0}"
+							style="margin-right: 10px; font-size: 16px; color: #7D7D7D">할인 판매가</div>
+						<div th:unless="${book.discountRate == null  or book.discountRate == 0}" id="discountPrice"
+							th:text="'→ ' + ${#numbers.formatDecimal(book.price*(100-book.discountRate)/100, 0, 'COMMA', 0, 'POINT')} + '원' +' ('+ ${book.discountRate} + '% 할인)'">
+						</div>
+					</div>
+					<div th:if="${allQuantity == null}" th:text="${outOfStock}" />
+					<div th:if="${allQuantity != null}" th:text="'재고수량 '+${allQuantity}+권"></div>
+
+					<!--<div th:if="${bookbranch == null}" th:text="${branchmsg}" />
+
+					<th:block th:each="bookbranch : ${bookbranch}">
+						<div th:if="${bookbranch!=null}" th:text="재고수량+${bookbranch.quantity}+권"></div>
+						<div th:text="${bookbranch.branches.branchName}"></div>
+					</th:block>-->
+					<br>			
+					
+					<div th:if="${cartMessage != null}" class="alert alert-success text-center">
+						[[${cartMessage}]]
+					</div>
+
+					<div id="button_box">
+						<form th:action="@{/cart/save}" th:object="${cart}" method="POST" onsubmit="return putonitem();">
+							<input type="hidden" id="number" th:name="number" value="1">
+							<!--   <input type="button" value="+" onclick="increment()"></input	>
+            				<input type="button" value="-" onclick="decrement()"></input> -->
+							<input type="hidden" th:value="${book.bookId}" name="book" />
+							<button type="submit" id="cart">장바구니</button>
+						</form>
+
+						<form th:action="@{|/order/buyselect|}" method="POST">
+							<input type="hidden" name="book" th:value="${book.bookId}" />
+							<input type="hidden" id="bookquantity" th:name="bookquantity" value="1">
+							<!--   <input type="button" value="+" onclick="incrementbook()"></input>
+            				<input type="button" value="-" onclick="decrementbook()"></input> -->
+							<button type="submit" id="buy">바로구매</button>
+						</form>
+
+						<div th:if="${check=='a'}" id="delete">
+							<button id="wish" type="button" th:value="${book.bookId}"
+								style="background: none; border: none;">
+								<div
+									style="width:36px; height:36px; background: white; border: 2px solid #5747E6; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
+									<img id="wishimage" th:src="@{/images/heart-outline2.png}" width="18px"
+										height="14px">
+								</div>
+							</button>
+						</div>
+						<div th:if="${check=='b'}" id="save">
+							<button id="wish" type="button" th:value="${book.bookId}"
+								style="background: none; border: none;">
+								<div
+									style="width:36px; height:36px; background: white; border: 2px solid #5747E6; border-radius: 6px; display: flex; justify-content: center; align-items: center;">
+									<img id="wishimage" th:src="@{/images/heart-outline1.png}" width="18px"
+										height="14px">
+								</div>
+							</button>
+						</div>
+					</div>
+
+					<!--					<form th:action="@{/usedBook/selluserd}" method="POST">
+						<input type="hidden" name="book" th:value="${book.bookId}" />
+						<button style="background: none; border: none; outline: none; margin:10px 0">중고 판매하기</button>
+					</form>
+-->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="tab"
+		style="width:1000px; height:52px; margin:auto; border-bottom:1px solid #D1D1D1; margin-bottom: 48px;">
+		<button class="tablinks active" onclick="openTab(event, 'book-info')"
+			style="width:120px; height:100%; background: none;">책 정보</button>
+		<button class="tablinks" onclick="openTab(event, 'review')"
+			style="width:120px; height:100%; background: none;">리뷰</button>
+	</div>
+
+	<div id="book-info-content" class="tabcontent"
+		style="display:block; width: 1000px; margin: auto; margin-bottom:200px;">
+		<h3 style="font-size: 24px; margin-bottom: 28px;">책 소개</h3>
+		<div th:text="${book.description}">(책 설명)</div>
+	</div>
+
+	<div id="review-content" class="tabcontent" style="display:none; margin: auto; width: 1000px; margin-bottom:150px;">
+		<form th:action="@{/book/review}" th:object="${review}" method="POST">
+			<input type="hidden" th:value="${book.bookId}" name="book" />
+
+			<div style="font-size: 28px; margin-bottom: 20px;">
+				<label for="comment">리뷰 쓰기</label>
+			</div>
+
+			<div>
+				<textarea th:field="*{comment}" placeholder="리뷰내용을 입력해주세요.(10자 이상)" minlength="10" maxlength="255" required/>
+			</div>
+
+
+			<div id="writeStarRating">
+				<div id="star">
+					<fieldset>
+						<input type="radio" th:field="*{starRating}" value=5 id="rate1" required>
+						<label for="rate1">★</label>
+						<input type="radio" th:field="*{starRating}" value=4 id="rate2" required>
+						<label for="rate2">★</label>
+						<input type="radio" th:field="*{starRating}" value=3 id="rate3" required>
+						<label for="rate3">★</label>
+						<input type="radio" th:field="*{starRating}" value=2 id="rate4" required>
+						<label for="rate4">★</label>
+						<input type="radio" th:field="*{starRating}" value=1 id="rate5" required>
+						<label for="rate5">★</label>
+					</fieldset>
+				</div>
+
+				<div>
+					<button id="buttonDone" class="buttonDoneStar">작성</button>
+					<button id="buttonCancel">
+						<a th:href="@{/book/detail(book=${book.bookId})}">Cancel</a>
+					</button>
+				</div>
+			</div>
+		</form>
+
+
+		<th:block th:each="reivews,num:${reviewdetail}">
+			<div id="reivewsBox">
+				<div id="reivewsBoxTop" style="color: gray;">
+					<div style="display: flex;">
+						<div th:text="${reivews.user.name}" />
+						<div style="margin: 0 15px;">&vert;</div>
+						<div th:text="${#temporals.format(reivews.commentDate, 'yyyy-MM-dd HH:mm:ss')}"></div>
+					</div>
+
+					<table>
+						<td th:if="${reivews.starRating==1}">
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</td>
+						<td th:if="${reivews.starRating==2}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</td>
+						<td th:if="${reivews.starRating==3}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</td>
+						<td th:if="${reivews.starRating==4}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="unstar">&#x2605;</span>
+						</td>
+						<td th:if="${reivews.starRating==5}">
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+							<span class="star">&#x2605;</span>
+						</td>
+					</table>
+				</div>
+				
+				<div id="reivewsBoxBottom">
+					<div th:id="|reivewsBoxComment${num.index}|" th:text="${reivews.comment}"
+						th:class="${#authentication.name == reivews.user.email} ? 'showEditForm' : ''">
+					</div>
+					<div th:id="|reivewsBoxCommentEdit${num.index}|" style="display:none;">
+						<textarea id="reivewsBoxCommentInput" th:text="${reivews.comment}"></textarea>
+						<div style="display: flex; justify-content: right;">
+							<form th:action="@{|/book/review/edit/${reivews.reviewsid}|}" method="POST">
+								<input type="hidden" th:value="${book.bookId}" name="book"/>
+								<input type="hidden" th:value="${reivews.comment}" name="updateReivew"/>
+								<button id="buttonDone" th:onclick="|editComment(${num.index})|">수정</button>
+							</form>
+					    	<button id="buttonCancel" th:onclick="|cancelEdit(${num.index})|">취소</button>
+					     </div>
+					</div>
+					<th:block th:if="${#authentication.name == reivews.user.email}">
+						<form id="deleteForm" th:action="@{/book/review/delete}" method="POST">
+							<input type="hidden" th:value="${book.bookId}" name="book"/>
+							<input type="hidden" th:value="${reivews.reviewsid}" name="review"/>
+							<img th:src="@{/images/x.png}" onclick="submitDeleteForm()"/>
+						</form>
+					</th:block>
+				</div>		
+			</div>
+			
+			<hr>
+
+		</th:block>
+
+	</div>
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

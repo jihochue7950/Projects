@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/home.css}" />
+
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div id="demo" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ul class="carousel-indicators">
+			<li data-target="#demo" data-slide-to="0" class="active"></li>
+			<li data-target="#demo" data-slide-to="1"></li>
+		</ul>
+
+		<!-- The slideshow -->
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img th:src="@{/images/banner.jpg}" width="1100" height="500">
+			</div>
+			<div class="carousel-item">
+				<a th:href="@{/book/bestseller}">
+					<img th:src="@{/images/banner3.jpg}" width="1100" height="500">
+				</a>
+			</div>
+		</div>
+
+		<!-- Left and right controls -->
+		<a class="carousel-control-prev" href="#demo" data-slide="prev"> <span
+				class="carousel-control-prev-icon"></span>
+		</a> <a class="carousel-control-next" href="#demo" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
+	</div>
+
+	<div th:if="${message != null}" class="alert alert-success text-center">
+		[[${message}]]
+	</div>
+
+	<div id="search_box1">
+		<div id="search_box2">
+			<h1 id="search_text">찾고 싶은 도서명을 검색하세요 <img th:src="@{/images/search_icon2.png}"
+					style="width:30px; height:30px; margin-left:5px;"></h1>
+			<form th:action="@{/book/categories/page/1}" style="text-align:center;">
+				<input type="hidden" name="sortField" th:value="bookId" />
+				<input type="hidden" name="sortDir" th:value="asc" />
+				<input type="hidden" name="category" th:value="null" />
+				<div style="position: relative; display: inline-block;">
+					<input id="search" type="search" name="keyword" th:value="${keyword}" placeholder="도서명 검색하기"
+						class="form-control" required />
+					<button type="submit" id="search_button">
+						<img th:src="@{/images/search_icon.png}"
+							style="position: absolute; right: 10px; top: 35%; transform: translateY(-50%); margin-right: 10px;">
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	<div th:id="|recommendation_${recommendationStat.index}|" class="recommendation"
+		th:each="recommendation, recommendationStat : ${recommendationList}">
+		<div class="bundleMent">
+			<div style="display: flex; justify-content: space-between; align-items: center;">
+				<div class="recommendation-title" th:text="${recommendation[0]}"></div>
+
+				<img th:if="${recommendation[0]} == 'AI가 추천해주는 내 취향 도서(책리스트 잘못됨)'" th:src="@{/images/book.png}"
+					style="width: 30px; height: 30px; margin-left: 2px;">
+				<img th:if="${recommendation[0]} == '베스트 셀러'" th:src="@{/images/fire.png}"
+					style="width: 30px; height: 30px; margin-left: 2px;">
+				<img th:if="${recommendation[0]} == '갓 입고된 따끈 따끈 도서'" th:src="@{/images/bread.png}"
+					style="width: 30px; height: 30px; margin-left: 2px;">
+				<img th:if="${recommendation[0]} == '이 주의 특가 도서 모음ZIP'" th:src="@{/images/file.png}"
+					style="width: 30px; height: 30px; margin-left: 2px;">
+
+			</div>
+
+			<div class="recommendation-more">
+				<a th:href="@{${recommendation[1]}}"><span style="color: #7D7D7D;">더보기+</span></a>
+			</div>
+		</div>
+
+		<div class="recommendation-books">
+			<div class="oneBookInfo" th:each="book : ${__${recommendation[2]}__}">
+				<!-- book 정보 표시 -->
+				<a th:href="@{/book/detail(book=${book.bookId})}">
+					<div class="book_info">
+						<img th:src="@{${book.imagePath}}" title="${book.image}" class="book_image" />
+						<div th:text="${book.title}" class="book_title"></div>
+					</div>
+
+					<div class="book_bundle">
+						<div th:text="${book.author}" class="book_author"></div>
+						<div class="discount_box">
+							<div th:id="${book.discountRate == null or book.discountRate == 0} ? 'originalPrice' : 'preDiscountPrice'"
+								th:text="${#numbers.formatDecimal(book.price, 0, 'COMMA', 0, 'POINT')} + '원'"></div>
+							<div th:unless="${book.discountRate == null  or book.discountRate == 0}" id="discountPrice"
+								th:text="'→ ' + ${#numbers.formatDecimal(book.price*(100-book.discountRate)/100, 0, 'COMMA', 0, 'POINT')} + '원' +' ('+ ${book.discountRate} + '% 할인)'">
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

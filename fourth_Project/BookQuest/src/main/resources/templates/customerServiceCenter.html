@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('CustomerServiceCenter')" />
+	<link rel="stylesheet" th:href="@{/css/customerServiceCenter.css}" />
+	<script type="text/javascript" th:src="@{/js/customerServiceCenter.js}"></script>
+
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div class="container">
+
+	
+		
+		<div id="qnaBox">
+			
+			<div th:if="${#lists.isEmpty(previousQuestionsAndAnswers)}" id ="noQuestions">
+				<th:block th:if="${#authentication.name == 'anonymousUser'}">
+					안녕하세요 고객님. 무엇이든 물어보세요
+				</th:block>
+	
+				<th:block th:if="${#authentication.name != 'anonymousUser'}">
+					안녕하세요 <span th:text="${#authentication.name} + '님'" />. 무엇을 도와드릴까요?
+				</th:block>
+			</div>
+
+			<th:block th:each="qa, iteration : ${previousQuestionsAndAnswers}">
+				<div th:text="'Q : ' + ${qa[0]}" id="questions"/>
+				<div th:text="'A : ' + ${qa[1]}" id="answers" th:classappend="${iteration.last} ? 'lastAnswer'"/>
+			</th:block>
+			
+			<!--#qnaBox의 height 속성이 auto로 설정되어 있을 경우, 
+			요소의 높이가 내부 콘텐츠에 따라 자동으로 조정됩니다. 
+			하지만 float 속성을 사용하면 요소가 더 이상 블록 레벨 요소가 아니므로, 
+			내부 콘텐츠가 부모 요소에 영향을 주지 않습니다. 
+			따라서 #qnaBox의 높이가 작동하지 않는 것입니다.-->
+			<div style="clear: both;"></div>
+		</div>
+
+
+		<div style="display: flex; justify-content:center; margin-bottom: 30px;">
+			<label for="question" style="font-size: 24px;";>Question : </label>
+			
+			<form id="questionForm" th:action="@{'/customerServiceCenter'}">
+				<textarea id="question" name="question"placeholder="Enter를 누르면 대화를 하실 수 있습니다."></textarea>		
+			</form>
+			
+			<form th:action="@{'/clearSession'}" method="POST">
+			    <button type="submit">초기화</button>
+			</form>
+		</div>
+	
+	</div>
+
+
+	<div th:replace="commonspace :: footer">
+		
+
+</body>
+
+</html>

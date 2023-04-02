@@ -1,0 +1,222 @@
+#text_box {
+	width: 1200px;
+	height: 165px;
+	font-size: 36px;
+	font-weight: bold;
+	padding-top: 50px;
+	margin: auto;
+}
+
+#checkbox {
+	width: 1200px;
+	height: 24px;
+	margin: auto;
+	margin-bottom: 15px;
+}
+
+#selectAll {
+	width: 105px;
+	height: 36px;
+	margin-right: 4px;
+	margin-top: 2px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+}
+
+#selectAll:focus {
+	outline: none;
+}
+
+#container {
+	width: 1200px;
+	margin: auto;
+	margin-top: 23px;
+	margin-bottom: 120px;
+	display: flex;
+	justify-content: space-between;
+}
+
+#left {
+	width: 780px;
+	display: inline-block;
+	vertical-align: top;
+	border-top: 2px solid;
+}
+
+#book_info {
+	height: 202px;
+	display: flex;
+	border-bottom: 1px solid #DADADA;
+}
+
+#image {
+	width: 102px;
+	height: 138px;
+	border-radius: 16px;
+	margin-right: 40px;
+	margin-top: 30px;
+}
+
+#title_and_price {
+	margin-top: 33px;
+}
+
+#book_title {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+
+#price {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+#delete_and_quantity_box {
+	margin-left: auto;
+	width: 120px;
+	/* 크기 조절 */
+	height: 180px;
+	/* 크기 조절 */
+}
+
+#delete_box {
+	margin-top: 32px;
+	width: 24px;
+	height: 24px;
+	float: right;
+}
+
+#quantity_box {
+	width: 120px;
+	display: flex;
+	flex-direction: column;
+}
+
+#price2 {
+	width: 120px;
+	font-size: 24px;
+	font-weight: 600;
+	margin-left: 18px;
+}
+
+
+#button_box {
+	width: 100px;
+	margin-top: 5px;
+	display: flex;
+	justify-content: space-around;
+	height: 33px;
+	margin-left: 6px;
+}
+
+#right {
+	width: 352px;
+	height: 368px;
+	border: 1px solid green;
+	display: flex;
+	align-items: center;
+	border-radius: 10px;
+	border: 1px solid #DADADA;
+}
+
+.text-center {
+	width: 280px;
+	height: 296px;
+	margin: auto;
+
+}
+
+#right_box1 {
+	width: 100%;
+	height: 156px;
+	margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #DADADA;
+}
+
+#right_box2 {
+	width: 100%;
+	height: 64px;
+}
+
+.DownBtn {
+	float: left;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+	width: 12px;
+	/* 이미지의 가로 크기 */
+	height: 12px;
+	/* 이미지의 세로 크기 */
+	background-image: url('path/to/image.png');
+	/* 이미지 경로 */
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* 이미지 크기에 맞게 조정 */
+	margin-right: 25px;
+}
+
+.DownBtn:focus {
+	outline: none;
+}
+
+.UpBtn {
+	float: right;
+	border: none;
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	cursor: pointer;
+	width: 12px;
+	/* 이미지의 가로 크기 */
+	height: 12px;
+	/* 이미지의 세로 크기 */
+	background-image: url('path/to/image.png');
+	/* 이미지 경로 */
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* 이미지 크기에 맞게 조정 */
+}
+
+.UpBtn:focus {
+	outline: none;
+}
+
+#order_price {
+	margin-bottom: 24px;
+	width: 94px;
+	height: 40px;
+}
+
+#book_price {
+	margin-bottom: 20px;
+}
+
+#buy_button {
+	width: 100%;
+	height: 50px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+	border-radius: 6px;
+}
+
+#totalPriceForlast {
+	float: right;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+#totalPriceAndDelivery {
+	float: right;
+	font-size: 26px;
+	font-weight: 600;
+}

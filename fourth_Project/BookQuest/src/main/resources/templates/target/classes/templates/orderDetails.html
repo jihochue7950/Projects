@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - orderDetails')" />
+	<link rel="stylesheet" th:href="@{/css/orderdetails.css}" />
+	<script type="text/javascript" th:src="@{/js/orderdetails.js}"></script>
+
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div th:if="${dividedPage ==null}">
+		<div class="container" style="text-align: center;">
+			<div class="title_box">주문 내역</div>
+
+			<table>
+				<tr>
+					<th>주소</th>
+					<th>배송 상태</th>
+					<th>주문날짜</th>
+					<th>주문 총 가격</th>
+					<th>결제 정보</th>
+					<th></th>
+				</tr>
+				<div th:each="order:${orders}" class="text-center">
+					<tr>
+						<td th:text="${order.address}"></td>
+						<td th:text="${order.deliveryStatus}"></td>
+						<td th:text="${#temporals.format(order.orderDate, 'yy-MM-dd')}"></td>
+						<td>
+							<div th:text="${#numbers.formatDecimal(order.totalPrice, 0, 'COMMA', 0, 'POINT') + '원'}" />
+						</td>
+						<td th:text="|${order.payment.bank}   ${order.payment.accountNumber} |"></td>
+						<td><a class="detail_button" th:href="@{|/order/details/${order.orderId}|}">상세보기</a>
+						</td>
+					</tr>
+				</div>
+				<hr>
+			</table>
+			<hr>
+		</div>
+	</div>
+
+	<div th:if="${dividedPage !=null}">
+		<div class="detail_title_box">상세 내역</div>
+
+		<div class="orderdetail_container">
+			<div id="book" th:each="orderdetails:${orderdetail}">
+				<div class="orderdetail_list">
+					<div class="image_and_title">
+						<div class="image">
+							<img th:src="@{${orderdetails.book.imagePath}}" title="${orderdetails.book.image}" id="img">
+						</div>
+						<div class="book_title_box">
+							<div style="font-size: 12px; color: #7D7D7D;">책 제목</div>
+							<div th:text="${orderdetails.book.title}" class="book_title"></div>
+						</div>
+					</div>
+
+					<div class="price_and_quantity">
+						<div class="price">
+							<div style="font-size: 12px; margin-right: 8px; color: #7D7D7D;">
+								가격
+							</div>
+							<div style="font-size: 14px; font-weight: 500;">
+								<div th:if="${orderdetails.book.discountRate =='0'}"
+									th:value="${orderdetails.book.price}">
+									<div
+										th:text="${#numbers.formatDecimal(orderdetails.book.price, 0, 'COMMA', 0, 'POINT') + '원'}">
+									</div>
+								</div>
+								<div th:if="${orderdetails.book.discountRate !='0'}"
+									th:value="${orderdetails.book.price*(1-orderdetails.book.discountRate*0.01)}">
+									<div
+										th:text="${#numbers.formatDecimal(orderdetails.book.price*(1-orderdetails.book.discountRate*0.01), 0, 'COMMA', 0, 'POINT') + '원'}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="quantity">
+							<div style="font-size: 12px; margin-right: 8px; color: #7D7D7D;">
+								수량
+							</div>
+							<div style="font-size: 14px; font-weight: 500;">
+								<span th:text="${orderdetails.orderQuantity}"></span>권
+							</div>
+						</div>
+					</div>
+
+					<div class="totalPrice_and_exchangeButton">
+						<div class="totalPrice">
+							<div style="font-size: 12px; margin-right: 8px; color: #7D7D7D; margin-right: 8px;">
+								<span th:text="${orderdetails.orderQuantity}"></span>권
+							</div>
+							<div style="font-size: 16px; font-weight: 600;">
+								<div th:if="${orderdetails.book.discountRate =='0'}">
+									[[${#numbers.formatDecimal(orderdetails.book.price*orderdetails.orderQuantity, 0,
+									'COMMA', 0,
+									'POINT') +
+									'원'}]]
+								</div>
+								<div th:if="${orderdetails.book.discountRate !='0'}">
+									[[${#numbers.formatDecimal(orderdetails.book.price*(1-orderdetails.book.discountRate*0.01)*orderdetails.orderQuantity,
+									0, 'COMMA', 0, 'POINT') + '원'}]]
+								</div>
+							</div>
+						</div>
+						<div class="exchangeButton">
+							교환신청
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="cancel_button_box">
+			<div class="cancel_button">
+				<a th:href="@{/order/}" style="color: white;">이전으로 </a>
+			</div>
+		</div>
+	</div>
+
+	<div th:replace="commonspace :: footer"></div>
+
+</body>
+
+</html>

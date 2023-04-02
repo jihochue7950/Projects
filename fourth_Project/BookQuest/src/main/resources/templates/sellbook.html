@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/sellbook.css}" />
+	<script type="text/javascript" th:src="@{/js/sellbook.js}"></script>
+
+</head>
+
+
+<body>
+	<div th:replace="commonspace :: menu" />
+	<div class="container">
+
+		<div id="book">
+			<a th:href="@{/book/detail(book=${book.bookId})}">
+				<img th:src="@{${book.imagePath}}" tilte="${book.image}">
+				<div id="bookInfo">
+					<div th:utext="'<b>'+'[중고]' + ${book.title}+'</b>'" />
+					<div th:text="${book.author} +' | '+ ${book.publisher} +' | '+ ${book.publicationDate}" />
+					<div th:text="${#numbers.formatDecimal(book.price, 0, 'COMMA', 0, 'POINT') + '원'}" />
+				</div>
+			</a>
+		</div>
+
+		<form th:action="@{/usedBook/sellbranch}" th:object="${user}" method="POST" onsubmit="return checkNameUnique(this)">
+			<input type="hidden" name="book" th:value="${book.bookId}"/>
+			<input type="hidden" th:field="*{userId}" />
+			
+			<table id="orderTable">
+				<tr>
+					<th>책 상태 확인하기</th>
+					<td><input type="checkbox" name="bookstatus" value="최상"/>최상
+						<input type="checkbox" name="bookstatus" value="상" />상
+					</td>
+				</tr>
+				<tr>
+					<th>택배 보낼 지점</th>
+					<td><select name="branch" required>
+							<option value="" hidden>지점목록</option>
+							<th:block th:each="branch: ${branchList}">
+								<option th:text="${branch.branchName}" th:value="${branch.branchId}" />
+							</th:block>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>택배기사 방문 장소</th>
+					<td><input type="text" th:field="*{address}" /></td>
+				</tr>
+				<tr>
+					<th>휴대전화 번호</th>
+					<td><input type="text" th:field="*{phone}" /></td>
+				</tr>
+				<tr>
+					<th>정산 받을 계좌</th>
+					<td><select name="payment" required>
+							<option value="" hidden>계좌 선택하기</option>
+							<th:block th:each="payment: ${paymentList}">
+								<option th:text="${payment.bank}" th:value="${payment.paymentId}" />
+							</th:block>
+						</select>
+					</td>
+				</tr>
+
+			</table>
+
+			<button class="submit" type="submit">팔기 신청 완료</button>
+		</form>
+
+	</div>
+
+</body>
+
+</html>

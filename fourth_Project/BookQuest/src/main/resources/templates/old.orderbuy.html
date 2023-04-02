@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('buyInfoDetails')" />
+	<link rel="stylesheet" th:href="@{/css/orderbuy.css}" />
+	<script type="text/javascript" th:src="@{/js/orderbuy.js}"></script>
+</head>
+
+<body>
+
+	<div>
+		<div th:replace="commonspace :: menu" />
+
+		<div class="container">
+
+			<div>
+				<h2>주문과정</h2>
+			</div>
+			<hr>
+			<div>주문 상품 정보</div>
+			<div th:each="cart:${carts}">
+				<table>
+					<tr>
+						<th>상품명</th>
+						<th>가격</th>
+						<th>수량</th>
+					</tr>
+					<tr>
+						<td id="title" th:text="${cart.book.title}"></td>
+						<td id="price" th:text="${#numbers.formatDecimal(cart.book.price*(100-cart.book.discountRate)/100, 0, 'COMMA', 0, 'POINT')} + '원'" />
+						</td>
+						<td id="bookQuantity">
+							[[${cart.bookQuantity}]]
+						</td>
+					</tr>
+				</table>
+
+				<div th:text="'총 결제 예상 금액' + ${#numbers.formatDecimal(cart.book.price*(100-cart.book.discountRate)/100*cart.bookQuantity, 0, 'COMMA', 0, 'POINT')} + '원'" />
+			</div>
+
+			<div>배송지 정보 입력</div>
+				
+
+			<form th:action="@{/order/orderbuy}" th:object="${orders}" method="get">
+				<input type="hidden" th:value="${carts}" name="cart" />
+				<input type="hidden" th:value="${carts.book}" name="book" />
+				<input type="hidden" th:value="${carts}" name="cart" />
+
+				<table id="orderTable">
+					<tr>
+						<th><label>배송지선택</label></th>
+					</tr>
+					<tr>
+						<th><label for="user.name">주문인</label></th>
+						<td><input type="text" th:field="*{user.name}" /></td>
+						</td>
+					</tr>
+					<tr>
+						<th><label for="address">주소</label></th>
+						<td><input type="text" th:field="*{address}" /></td>
+					</tr>
+					<tr>
+						<th><label for="user.phone">휴대전화번호</label></th>
+						<td><input type="text" th:field="*{user.phone}" /></td>
+						</td>
+					</tr>
+				</table>
+
+				<div><label for="payment.paymentId">payMent: </label>
+					<th:block th:each="payment: ${paymentList}">
+						<input type="checkbox" th:field="*{payment}" th:value="${payment.paymentId}"
+							th:text="${payment.bank}" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					</th:block>
+				</div>
+
+				<div class="text-center">
+					<input type="submit" value="Save" onclick="return validateForm()">
+					<input type="button" value="Cancel" id="buttonCancel" />
+				</div>
+		</div>
+		</form>
+
+
+
+	</div>
+
+	<img th:src="@{/images/examplerediRectbuy.jpg}" style="width:100%;" />
+
+	<div th:replace="commonspace :: footer" />
+</body>
+
+</html>

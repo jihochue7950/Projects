@@ -1,0 +1,169 @@
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+
+#search_box1 {
+	width: 100%;
+	height: 282px;
+}
+
+#search_box2 {
+	width: 1200px;
+	height: 100%;
+	margin: auto;
+	padding-top: 60px;
+}
+
+#search_text {
+	margin-bottom: 36px;
+	font-size: 30px;
+	text-align: center;
+}
+
+#search {
+	width: 588px;
+	height: 48px;
+	border-radius: 100px;
+	margin-bottom: 50px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #5747E6;
+	margin: auto;
+	padding-left: 32px;
+	background-color: #F8F8FF;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+#search::placeholder {
+	color: #5747E6;
+}
+
+#search_button {
+	width: 0;
+	height: 0;
+	border: none;
+	background: none;
+	overflow: hidden;
+}
+
+.recommendation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 50px;
+	height: 618px;
+}
+
+#recommendation_0 {
+	background-color: #F8F8FF;
+}
+
+#recommendation_2 {
+	background-color: #F6F6F6;
+}
+
+.bundleMent {
+	width: 1200px;
+	height: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 38px;
+}
+
+.recommendation-title {
+	font-size: 30px;
+	font-weight: 600;
+	margin-right: 5px;
+}
+
+.recommendation-more {
+	font-size: 14px;
+}
+
+.recommendation-books {
+	width: 1200px;
+	height: 380px;
+	margin-top: 40px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.oneBookInfo {
+	width: 224px;
+	height: 100%;
+}
+
+.book_image {
+	width: 100%;
+	height: 292px;
+	border-radius: 12px;
+}
+
+.book_title {
+	width: 100%;
+	height: 35px;
+	padding-top: 7px;
+	padding-left: 3px;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.book_bundle {
+	margin-top: 8px;
+	width: 100%;
+	height: 45px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.book_author {
+	font-size: 14px;
+	color: #7F7FB9;
+	margin-bottom: 1px;
+}
+
+.book_info {
+	border-radius: 13px;
+}
+
+.book_info:hover {
+	transform: scale(1.1) translateY(-5px);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.discount_box {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+.preDiscountPrice {
+	align-self: flex-start;
+}
+
+.discountPrice {
+	align-self: flex-end;
+}
+
+#originalPrice {
+	float: right;
+	text-align: right;
+	color: #5747E6;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#preDiscountPrice {
+	text-decoration: line-through;
+	color: #777;
+}
+
+#discountPrice {
+	float: right;
+	text-align: right;
+	color: #c00;
+	font-weight: bold;
+}

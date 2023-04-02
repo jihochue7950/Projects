@@ -1,0 +1,194 @@
+#tabArea1 {
+	width: 860px;
+	height: 189px;
+	border: none;
+	margin-left: 33px;
+}
+
+#tabArea2 {
+	width: 100%;
+	height: 120px;
+	border: none;
+	padding-top: 50px;
+	margin-bottom: 40px;
+}
+
+#searchFilter {
+	width: 100%;
+	height: 52px;
+	margin: auto;
+	border-bottom: 1px solid #D1D1D1;
+	margin-bottom: 48px;
+	display: flex;
+}
+
+#searchFilter a {
+	width: 120px;
+	height: 100%;
+	padding-left: 30px;
+	display: flex;
+	align-items: center;
+	margin-right: 15px;
+	float: left;
+	font-weight: 500;
+}
+
+#wrapper {
+	display: flex;
+	align-items: center;
+	max-width: 1200px;
+	/* wrapper 요소의 width를 고정 */
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+#book_search_box {
+	width: 856px;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+	margin-left: 30px;
+}
+
+#book_search {
+	width: 739px;
+	height: 38px;
+	background-color: #F6F6F6;
+	border-radius: 6px;
+	padding-left: 12px;
+	border: 2px solid #DADADA;
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+#book_search_button {
+	width: 98px;
+	height: 38px;
+	border-radius: 6px;
+	background-color: #5747E6;
+	color: white;
+	border: none;
+}
+
+#category {
+	min-width: 230px;
+	height: 1350px;
+	margin-top: 38px;
+	margin-right: 35px;
+	padding-top: 10px;
+	border-radius: 8px;
+	border: 1px solid #7D7D7D;
+	padding-top: 10px;
+	margin-bottom: 70px;
+}
+
+#categoriesMenu {
+	width: 100%;
+	padding-top: 10px;
+	margin-bottom: 20px;
+}
+
+#categoriesMenu div {
+	padding-left: 20px;
+}
+
+#book_box {
+	margin-top: 5px;
+	margin-left: 28px;
+	margin-bottom: 20px;
+	width: 856px;
+	height: auto;
+	display: block;
+	border-collapse: collapse;
+}
+
+#booklist {
+	width: 100%;
+	height: 308px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #DADADA;
+}
+
+.book {
+	width: 780px;
+	height: 244px;
+	display: inline-block;
+	clear: both;
+}
+
+#image_box {
+	width: 163px;
+	height: 100%;
+	margin-right: 39px;
+	float: left;
+}
+
+#image_box>a>img {
+	width: 100%;
+	height: 100%;
+	border-radius: 16px;
+}
+
+#book_info {
+	width: 560px;
+	height: 100%;
+	margin-left: 200px;
+}
+
+#book_info2 {
+   width: 300px;
+   height: 175px;
+}
+
+#book_description {
+	width: 560px;
+	height: 40px;
+}
+
+#button_box {
+	float: left;
+	width: 99px;
+	height: 88px;
+}
+
+#cart {
+	color: #5747E6;
+	border-radius: 6px;
+	width: 99px;
+	height: 36px;
+	border: 2px solid #5747E6;
+	font-size: 16px;
+	background-color: white;
+}
+
+#buy {
+	background-color: #5747E6;
+	width: 99px;
+	height: 36px;
+	border-radius: 6px;
+	border: none;
+	color: white;
+	font-size: 16px;
+}
+
+.star {
+	color: rgba(250, 208, 0, 0.99);
+	font-size: 120%;
+}
+
+.unstar {
+	color: #f0f0f0;
+	font-size: 120%;
+}
+
+.page-item.active .page-link {
+	background-color: #5747E6;
+	border-color: #5747E6;
+}
+
+.page-link {
+	color: #5747E6;
+	float: none;
+	margin: 1px 7px;
+}

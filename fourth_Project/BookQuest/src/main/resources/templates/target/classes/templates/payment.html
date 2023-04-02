@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<link rel="stylesheet" th:href="@{/css/payment.css}" />
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+</head>
+
+<script>
+	$(document).ready(function () {
+		document.getElementById("modal_opne_btn").onclick = function () {
+			$('#modalDialog').modal();
+		}
+	});            
+</script>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<div class="page_title">결제수단 등록</div>
+
+	<div class="content">
+		<table>
+			<tr>
+				<th>카드명</th>
+				<th>카드번호</th>
+				<th>카드삭제</th>
+			</tr>
+
+			<tr th:each="payment : ${paymentList}">
+				<td th:text="${payment.bank}"></td>
+				<td th:text="${payment.accountNumber}"></td>
+				<td><button class="delete_button"><a th:href="@{|/payment/delete/${payment.paymentId}|}">삭제</a></button>
+				</td>
+			</tr>
+		</table>
+
+		<div>
+			<button type="button" id="modal_opne_btn">결제수단 추가</button>
+		</div>
+	</div>
+
+	<div class="modal fade text-center" id="modalDialog">
+		<form id="asdasdasd" th:action="@{/payment/save}" th:object="${payment}" method="POST">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="modal-title" id="modalTitle">결제수단 추가</div>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+
+					<div class="modal-body">
+						<input type="hidden" th:field="*{paymentId}" />
+						<div class="card_name">
+							카드명: <input type="text" th:field="*{bank}" id="bank" class="form-control" placeholder="카드명"
+								required>
+						</div>
+						<div class="card_num">
+							카드번호: <input type="text" th:field="*{accountNumber}" class="form-control" id="accountnumber"
+								placeholder="카드번호" minlength="16" maxlength="16" required>
+						</div>
+					</div>
+
+					<div class="modal-footer">
+						<button type="button" class="cancel_button" data-dismiss="modal">취소</button>
+						<button type="submit" class="save_button" value="Save">등록</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+
+
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

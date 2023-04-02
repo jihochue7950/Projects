@@ -1,0 +1,38 @@
+#qnaBox {
+	min-height: 600px;
+	height: auto;
+	border: 1px solid #5747E6;
+	border-radius: 30px;
+	margin: 30px 0;
+	padding: 20px;
+}
+
+#noQuestions {
+	text-align: center;
+	margin: 250px 0;
+	font-size: 36px;
+	font-weight: 500;
+}
+
+textarea {
+	width: 800px;
+	min-height: 64px;
+	height: auto;
+	font-size: 15px;
+	border: 2px solid #5747E6;
+	border-radius: 10px;
+	padding: 8px 16px;
+	background-color: #F8F8FF;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+	margin: 0 10px 0 5px;
+}
+
+button {
+	color: #5747E6;
+	border-radius: 6px;
+	width: 99px;
+	height: 36px;
+	border: 2px solid #5747E6;
+	font-size: 16px;
+	background-color: white;
+}

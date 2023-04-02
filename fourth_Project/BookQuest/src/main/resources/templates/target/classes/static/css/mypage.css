@@ -1,0 +1,107 @@
+.icon_and_title {
+	width: 1000px;
+	height: 140px;
+	padding-top: 60px;
+	margin: auto;
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 20px;
+}
+
+.icon_box {
+	width: 90px;
+	height: 90px;
+	border: 1px solid #DADADA;
+	border-radius: 50%;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 17px;
+}
+
+.level_and_name {
+	width: 330px;
+	height: 72px;
+	margin-bottom: 8px;
+}
+
+.name {
+	font-weight: 500;
+	font-size: 27px;
+}
+
+.user_info_box {
+	width: 1000px;
+	height: 130px;
+	background-color: #F6F6F6;
+	border: 1px solid #DADADA;
+	border-radius: 10px;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding-right: 15px;
+}
+
+.my_level,
+.shipping,
+.delevered {
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.user_info,
+.order_history,
+.payment_method {
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 3px;
+}
+
+.revise_button,
+.order_history_button,
+.payment_button {
+	border-radius: 6px;
+	width: 90px;
+	height: 30px;
+	border: 1px solid #DADADA;
+	background-color: #ffffff;
+	font-size: 14px;
+	font-weight: 500;
+	margin-top: 14px;
+}
+
+
+
+
+
+table {
+	border: 1ch;
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td,
+th {
+	border: 1px solid rgb(239, 240, 241);
+	text-align: left;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: rgb(239, 240, 241);
+}
+
+#background {
+	display: flex;
+	justify-content: space-around;
+	background-color: rgb(239, 240, 241);
+}

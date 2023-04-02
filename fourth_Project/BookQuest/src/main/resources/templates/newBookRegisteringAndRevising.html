@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<head th:replace="commonspace :: page_head('Home - Book Quest')" />
+	<link rel="stylesheet" th:href="@{/css/newBookRegisteringAndRevising.css}" />
+	<script type="text/javascript" th:src="@{/js/newBookRegisteringAndRevising.js}" />
+
+	<script type="text/javascript">
+
+	</script>
+
+</head>
+
+<body>
+	<div th:replace="commonspace :: menu"></div>
+
+	<form th:action="@{/admin/saveBookInformation}" th:object="${registering}" method="POST"
+		enctype="multipart/form-data" onsubmit="return checkNameUnique(this)">
+		<div th:text="${bookId == null} ? '신간 도서 등록하기' : '책 정보 수정하기'" class="page_title"></div>
+		<input type="hidden" th:field="*{bookId}" />
+
+		<div class="container">
+			<div class="insert_image_box">
+				<div class="image_box_title">책표지 업로드</div>
+				<div class="thumbnail_and_file">
+					<div class="thumbnail_box">
+						<input type="hidden" th:field="*{image}" /> <img id="thumbnail" alt="Book Cover preview"
+							th:src="@{${registering.imagePath}}" />
+					</div>
+					<input type="file" id="bookCover" name="uploadBookCover" accept="image/png,image/jpeg"
+						th:required="${registering.image == null}" />
+				</div>
+			</div>
+
+			<div class="book_info_title">책 정보</div>
+
+			<div class="book_info_box">
+				<div class="title_and_author">
+					<div class="title">
+						<div class="title_text">책 제목:</div>
+						<div class="title_inputbox">
+							<input type="text" th:field="*{title}" placeholder="책 제목" class="form-control" required>
+						</div>
+					</div>
+					<div class="author">
+						<div class="author_text">저자:</div>
+						<div class="author_inputbox">
+							<input type="text" th:field="*{author}" placeholder="저자" class="form-control" required>
+						</div>
+					</div>
+				</div>
+
+				<div class="category_and_publisher">
+					<div class="category">
+						<div class="category_text">카테고리:</div>
+						<div>
+							<select th:field="*{category}" required class="category_inputbox">
+								<option value="" hidden>카테고리 선택</option>
+								<th:block th:each="category : ${categoryList}">
+									<option th:value="${category.categoryId}" th:disabled="${category.parent == null}">
+										[[${category.name}]]</option>
+								</th:block>
+							</select>
+						</div>
+					</div>
+					<div class="publisher">
+						<div class="publisher_text">출판사:</div>
+						<div class="publisher_inputbox">
+							<input type="text" th:field="*{publisher}" class="form-control" placeholder="출판사" required>
+						</div>
+					</div>
+				</div>
+
+				<div class="price_and_publicationDate">
+					<div class="price">
+						<div class="price_text">판매가:</div>
+						<div class="price_inputbox">
+							<input type="text" th:field="*{price}" class="form-control" placeholder="판매가" required>
+						</div>
+					</div>
+					<div class="publicationDate">
+						<div class="publicationDate_text">발간일:</div>
+						<div class="pubilcationDate_inputbox">
+							<input type="text" th:field="*{publicationDate}" class="form-control" placeholder="발간일"
+								required>
+						</div>
+					</div>
+				</div>
+
+				<div class="discount">
+					<div class="discount_text">할인율:</div>
+					<div class="discount_inputbox">
+						<input type="number" th:field="*{discountRate}" class="form-control" placeholder="할인율">
+					</div>
+				</div>
+
+				<div class="description_box">
+					<div class="description_text">책 소개:</div>
+					<div>
+						<textarea id="description" th:field="*{description}" class="form-control" placeholder="책소개"
+							rows="5" required />
+					</div>
+				</div>
+
+				<div class="button_box">
+					<div class="cancel_button">
+						<a th:href="@{/admin/editBookInformation}">이전으로 </a>
+					</div>
+					<div class="delete_button" th:if="${bookId != null}">
+						<a th:href="@{/admin/deleteBookInformation/{bookId}(bookId=${bookId})}">삭제
+						</a>
+					</div>
+					<div class="revise_and_register_button">
+						<button type="submit" th:if="${bookId != null}"
+							style="border: none; background-color: transparent;">
+							<div style="color: white;">수정</div>
+						</button>
+						<button type="submit" th:if="${bookId == null}"
+							style="border: none; background-color: transparent;">
+							<div style="color: white;">등록</div>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<div th:replace="commonspace :: footer"></div>
+</body>
+
+</html>

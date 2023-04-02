@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+
+
+<head th:replace="commonspace :: page_head('wishlist')" />
+<link rel="stylesheet" th:href="@{/css/wishlist.css}" />
+
+</head>
+<script>
+	function deleteItem() {
+		// 확인 메시지 띄우기
+		if (confirm("정말로 삭제하시겠습니까?")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+
+<body>
+	<div th:replace="commonspace :: menu" />
+
+	<div id="tabArea1">
+
+		<div id="tabArea2">
+			<div id="title">나의 <span id="titlePoint">최애 도서</span>는 ?
+				<img th:src="@{/images/clap.png}" style="width: 30px; height: 30px; margin-left: 2px;">
+			</div>
+			<div style="color: #AEAEAE;">좋아하는 책의 이미지를 클릭해주세요! 추후 AI가 회원님의 취향을 토대로 추천 도서 리스트를 제공해드립니다.</div>
+		</div>
+
+
+		<div id="book_box">
+			<div th:each="wish, i :${wishList}">
+				<a th:href="@{|/wishlist/delete/${wish.book.bookId}|}" onclick="return deleteItem();"
+					style="float:right;"> <img th:src="@{/images/x.png}">
+				</a>
+				<div id="book">
+					<a th:href="@{/book/detail(book=${wish.book.bookId})}">
+						<img id="bookImage" th:src="@{${wish.book.imagePath}}" title="${wish.book.image}" />
+						<img id="bookImageHover" th:src="@{/images/purpleHeart.png}" />
+						<div th:text="${wish.book.title}" style="font-weight:500; margin-top: 10px;" />
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+
+		<div style="text-align:right; margin-top: 20px; margin-right: 30px;">
+			<button id="buttonDone" onclick="history.back()">이전으로</button>
+		</div>
+
+	</div>
+
+
+	<div th:replace="commonspace :: footer"></div>
+
+</body>
+
+</html>

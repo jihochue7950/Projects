@@ -1,0 +1,19 @@
+#book>a {
+	display: flex;
+}
+
+#book>a>img {
+	width: 100px;
+	height: 150px;
+	border-radius: 20px;
+}
+
+#bookInfo {
+	margin-left: 20px;
+	width: 300px;
+}
+
+#orderTable,tr,td {
+	border: 1px solid lightseagreen;
+	margin-top: 100px;
+}
