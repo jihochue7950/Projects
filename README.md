@@ -8,6 +8,9 @@
 <p align="center">
   <a href="https://jihochu.dothome.co.kr">
     🌐 <b>포트폴리오 바로가기</b>
+
+    **## 📂 Portfolio URL
+     🔗 https://jihochu.dothome.co.kr**
   </a>
 </p>
 
@@ -64,12 +67,6 @@
 ![IntelliJ](https://img.shields.io/badge/IntelliJ-000000?style=for-the-badge)
 ![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge)
 ![VSCode](https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge)
-
----
-
-## 📂 Portfolio
-👉 아래 링크에서 전체 프로젝트 확인 가능합니다  
-🔗 https://jihochu.dothome.co.kr
 
 ---
 
