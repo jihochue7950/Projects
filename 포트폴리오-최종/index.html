@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>추지호 | 풀스택 개발자 포트폴리오</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Devicon (기술 스택 아이콘) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-name">추지호</span>
+      <span class="logo-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#intro" class="nav-link">Intro</a></li>
+      <li><a href="#metrics" class="nav-link">Numbers</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+      <li><a href="#casestudy" class="nav-link">Case Study</a></li>
+      <li><a href="#commitlog" class="nav-link">Commit Log</a></li>
+      <li><a href="#erp" class="nav-link">ERP 연동</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="메뉴 토글">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ========== HERO / INTRO ========== -->
+<section class="hero" id="intro">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-particles" id="particles"></div>
+  <div class="container hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      <span>Backend Engineer · System Reliability Specialist</span>
+    </div>
+
+    <h1 class="hero-title" id="heroTitle">
+      <span class="title-line">장애는 0으로,</span>
+      <span class="title-line highlight">성능은 2배로.</span>
+    </h1>
+
+    <div class="headline-cards">
+      <div class="headline-card active" data-idx="0">
+        <div class="hc-num">01</div>
+        <div class="hc-text">
+          <strong>시스템이 멈추지 않도록 설계합니다</strong>
+          <p>SocketException·메일 큐 무한루프 등 운영 장애를 근본 원인까지 추적하고 제거 — 재발률 <em>0%</em></p>
+        </div>
+      </div>
+      <div class="headline-card" data-idx="1">
+        <div class="hc-num">02</div>
+        <div class="hc-text">
+          <strong>쿼리 한 줄이 서비스 속도를 바꿉니다</strong>
+          <p>Bulk Insert·옵티마이저 최적화·인덱스 재설계로 처리 속도를 <em>2배</em> 끌어올린 DB 성능 전문가</p>
+        </div>
+      </div>
+      <div class="headline-card" data-idx="2">
+        <div class="hc-num">03</div>
+        <div class="hc-text">
+          <strong>요구사항부터 배포까지, 혼자서 완성합니다</strong>
+          <p>ERP↔그룹웨어 연동 10건 이상을 요구사항 분석 → 설계 → 개발 → 테스트 → 배포 전 과정 <em>단독 수행</em></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="headline-dots">
+      <button class="dot active" data-idx="0"></button>
+      <button class="dot" data-idx="1"></button>
+      <button class="dot" data-idx="2"></button>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#portfolio" class="btn btn-primary"><i class="fas fa-code"></i> Portfolio 보기</a>
+      <a href="#metrics" class="btn btn-outline"><i class="fas fa-chart-bar"></i> 성과 지표</a>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll Down</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NUMBERS THAT MATTER ========== -->
+<section class="metrics-section" id="metrics">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">NUMBERS THAT MATTER</span>
+      <h2 class="section-title">숫자로 증명하는 <span class="accent">실력</span></h2>
+      <p class="section-sub">공공·금융·기업·대학교 고객사에서 쌓아온 정량적 성과</p>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card" data-count="500" data-suffix="+">
+        <div class="metric-icon"><i class="fas fa-tools"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="500">0</span>+</div>
+        <div class="metric-label">누적 커밋 & 이슈 해결</div>
+        <div class="metric-desc">전자결재·메일·자기점검·ERP연동·인프라 등 전 모듈 오류·개선·개발 대응 (이미지 확인 100+건 포함)</div>
+      </div>
+      <div class="metric-card highlight-card" data-count="0">
+        <div class="metric-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="0">99</span></div>
+        <div class="metric-label">재발 장애 건수</div>
+        <div class="metric-desc">근본 원인 분석(RCA) 기반 리팩토링으로 장애 재발 Zero</div>
+        <div class="metric-badge">Zero Incident</div>
+      </div>
+      <div class="metric-card" data-count="2">
+        <div class="metric-icon"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="2">0</span>x</div>
+        <div class="metric-label">성능 향상</div>
+        <div class="metric-desc">문자열 처리·메모리 최적화로 연동 문서 처리 속도 2배 향상</div>
+      </div>
+      <div class="metric-card" data-count="10">
+        <div class="metric-icon"><i class="fas fa-plug"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="10">0</span>+</div>
+        <div class="metric-label">ERP 연동 양식</div>
+        <div class="metric-desc">의료·행정·금융 도메인 ERP↔그룹웨어 연동 단독 개발</div>
+      </div>
+      <div class="metric-card" data-count="2">
+        <div class="metric-icon"><i class="fas fa-rocket"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="2">0</span>+</div>
+        <div class="metric-label">연간 고도화 건수</div>
+        <div class="metric-desc">매년 2건 이상 전자결재 연동 고도화 프로젝트 단독 수행</div>
+      </div>
+      <div class="metric-card" data-count="5">
+        <div class="metric-icon"><i class="fas fa-building"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="5">0</span>+</div>
+        <div class="metric-label">운영 고객사 유형</div>
+        <div class="metric-desc">공공기관·금융·기업·대학교·의료기관 다도메인 운영 경험</div>
+      </div>
+      <div class="metric-card" data-count="20000">
+        <div class="metric-icon"><i class="fas fa-file-alt"></i></div>
+        <div class="metric-number"><span class="count-up" data-target="20000">0</span>+</div>
+        <div class="metric-label">자동 검증 처리 건수</div>
+        <div class="metric-desc">대량 전자문서 시행일자 DB 정합성 자동 비교·추출 툴 개발로 2만 건 처리</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SKILLS ========== -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">TECH STACK</span>
+      <h2 class="section-title">기술 <span class="accent">스택</span></h2>
+    </div>
+
+    <div class="skills-tabs">
+      <button class="skill-tab active" data-tab="backend">
+        <i class="fas fa-server"></i> Backend
+      </button>
+      <button class="skill-tab" data-tab="database">
+        <i class="fas fa-database"></i> Database
+      </button>
+      <button class="skill-tab" data-tab="infra">
+        <i class="fas fa-cloud"></i> Infra / DevOps
+      </button>
+      <button class="skill-tab" data-tab="frontend">
+        <i class="fas fa-paint-brush"></i> Frontend
+      </button>
+    </div>
+
+    <div class="skills-content">
+      <!-- Backend -->
+      <div class="skill-panel active" id="tab-backend">
+        <div class="skill-cards-grid">
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-java-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Java</h4>
+              <p>레거시 코드 리팩토링 및 멀티스레드 환경의 리소스 누수 추적·해결 경험 보유</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-spring-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Spring Framework</h4>
+              <p>MVC 기반 그룹웨어 백엔드 설계 및 레거시 스프링 시스템 장기 운영·고도화</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-maven-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Maven</h4>
+              <p>의존성 관리 및 라이브러리 패치(james-server-mailets 등) 적용 경험</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              <span class="skill-level">Intermediate+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Database -->
+      <div class="skill-panel" id="tab-database">
+        <div class="skill-cards-grid">
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-mysql-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>MySQL</h4>
+              <p>Bulk Insert·STRAIGHT_JOIN 제거·실행 계획 분석으로 쿼리 최적화 및 성능 2배 향상</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-oracle-original colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Oracle</h4>
+              <p>금융·공공 고객사 Oracle 기반 시스템 운영 및 쿼리 튜닝 경험</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
+              <span class="skill-level">Intermediate+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Infra -->
+      <div class="skill-panel" id="tab-infra">
+        <div class="skill-cards-grid">
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-linux-plain"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Linux</h4>
+              <p>/proc/PID/fd 분석, cron 스케줄링, 디스크 관리 등 서버 운영 실무 경험</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-apache-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Apache / Tomcat</h4>
+              <p>WAS·웹서버 이중화 구조 운영 및 배포 환경 구성, 장애 복구 경험</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+              <span class="skill-level">Advanced</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="fas fa-clock" style="font-size:2.2rem;color:#4ade80"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>Cron / Shell Script</h4>
+              <p>정기 데이터 정리 자동화, 조건별 파일 삭제 스크립트 작성 및 운영 반영</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:77%"></div></div>
+              <span class="skill-level">Intermediate+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frontend -->
+      <div class="skill-panel" id="tab-frontend">
+        <div class="skill-cards-grid">
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-javascript-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>JavaScript</h4>
+              <p>그룹웨어 UI 기능 개발 및 비동기 처리, 사용자 인터랙션 구현</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
+              <span class="skill-level">Intermediate+</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card-icon">
+              <i class="devicon-jquery-plain colored"></i>
+            </div>
+            <div class="skill-card-info">
+              <h4>jQuery</h4>
+              <p>레거시 그룹웨어 환경의 DOM 조작 및 Ajax 기반 동적 데이터 처리</p>
+              <div class="skill-bar"><div class="skill-fill" style="width:72%"></div></div>
+              <span class="skill-level">Intermediate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 기술 스택 아이콘 모아보기 -->
+    <div class="techstack-icons">
+      <div class="tech-icon-item" title="Java"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+      <div class="tech-icon-item" title="Spring"><i class="devicon-spring-plain colored"></i><span>Spring</span></div>
+      <div class="tech-icon-item" title="MySQL"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+      <div class="tech-icon-item" title="Oracle"><i class="devicon-oracle-original colored"></i><span>Oracle</span></div>
+      <div class="tech-icon-item" title="JavaScript"><i class="devicon-javascript-plain colored"></i><span>JS</span></div>
+      <div class="tech-icon-item" title="jQuery"><i class="devicon-jquery-plain colored"></i><span>jQuery</span></div>
+      <div class="tech-icon-item" title="Apache"><i class="devicon-apache-plain colored"></i><span>Apache</span></div>
+      <div class="tech-icon-item" title="Tomcat"><i class="devicon-tomcat-line colored"></i><span>Tomcat</span></div>
+      <div class="tech-icon-item" title="Maven"><i class="devicon-maven-plain colored"></i><span>Maven</span></div>
+      <div class="tech-icon-item" title="Linux"><i class="devicon-linux-plain"></i><span>Linux</span></div>
+      <div class="tech-icon-item" title="IntelliJ"><i class="devicon-intellij-plain colored"></i><span>IntelliJ</span></div>
+      <div class="tech-icon-item" title="Git"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PERFORMANCE CHARTS ========== -->
+<section class="charts-section" id="charts">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">PERFORMANCE METRICS</span>
+      <h2 class="section-title">성과 <span class="accent">시각화</span></h2>
+    </div>
+    <div class="charts-grid">
+      <div class="chart-card">
+        <h3><i class="fas fa-bolt"></i> 전자결재 처리 성능 개선</h3>
+        <div style="height:260px;position:relative;">
+          <canvas id="performanceChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-shield-alt"></i> 연간 장애 재발 현황</h3>
+        <div style="height:260px;position:relative;">
+          <canvas id="incidentChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3><i class="fas fa-tasks"></i> 이슈 유형별 처리 현황</h3>
+        <div style="height:260px;position:relative;">
+          <canvas id="issueChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECHNICAL PORTFOLIO ========== -->
+<section class="portfolio-section" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">TECHNICAL PORTFOLIO</span>
+      <h2 class="section-title">7가지 핵심 <span class="accent">업무 경험</span></h2>
+      <p class="section-sub">Situation → Task → Action → Result 구조로 재구성한 실전 문제 해결 사례</p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <!-- Case 1 -->
+      <div class="portfolio-card" data-id="1">
+        <div class="pc-header">
+          <div class="pc-tag tag-red"><i class="fas fa-exclamation-triangle"></i> System Failure</div>
+          <div class="pc-num">01</div>
+        </div>
+        <h3>SocketException FD 증가 → 서비스 접속 불가 해결</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>운영 중 <code>SocketException: Too many open files</code> 발생, 서비스 전면 접속 불가 장애로 이어짐</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>FD(File Descriptor) 증가 원인을 추적하여 재발 없는 영구적 해결책 수립</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fas fa-terminal"></i> Linux · Java</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment"># /proc/PID/fd 확인으로 FD 누수 추적</span>
+ps aux | grep ezFlow => 프로세스 id 확인</br>
+cd /proc/프로세스id/fd => 현재 실행중인(쌓여있는) 파일 목록</br>
+ls -l | wc -l => 파일 갯수 확인 </br>
+prlimit -p 프로세스id => 현재 실행중인 프로세스의 limit수 확인
+<span class="c-comment"># → FD count 지속 증가 확인</span>
+
+<span class="c-comment">// Java: InputStream 미종료 코드 (문제)</span>
+contentType = URLConnection.guessContentTypeFromStream(Files.newInputStream(Paths.get(realPath + imgSrc)));</br>
+<span class="c-comment">// close() 누락 → FD 릭 발생</span>
+
+<span class="c-comment">// 개선: colse() 적용 되도록 코드 수정</span>
+<span class="c-keyword">tempIn = Files.newInputStream(Paths.get(realPath + imgSrc));
+contentType = URLConnection.guessContentTypeFromStream(tempIn);
+                 <span class="c-comment">// 자동 close → FD 즉시 반환</span></code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-check"></i> 장애 재발 0건</span>
+              <span class="rbadge blue"><i class="fas fa-server"></i> 서버 안정성 확보</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="portfolio-card" data-id="2">
+        <div class="pc-header">
+          <div class="pc-tag tag-orange"><i class="fas fa-database"></i> DB Optimization</div>
+          <div class="pc-num">02</div>
+        </div>
+        <h3>전자결재 처리 속도 저하 → Bulk Insert + 쿼리 최적화</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>데이터 증가에 따라 전자결재 처리 시간이 점진적으로 증가, 사용자 체감 속도 저하 및 DB 부하 상승</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>INSERT 패턴 최적화 및 쿼리 실행 계획(Execution Plan) 개선으로 처리 성능 복원</p>
+            <p>STRAIGHT_JOIN 제거 후, DB 옵티마이저가 최적 조인 순서를 선택하도록 변경</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fas fa-database"></i> MySQL</span> 
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment">-- [Example] 기존: 건별 INSERT (N회 DB 왕복) </span>
+<span class="c-keyword">INSERT INTO</span> approval_data VALUES (<span class="c-str">'row1'</span>);
+<span class="c-keyword">INSERT INTO</span> approval_data VALUES (<span class="c-str">'row2'</span>); <span class="c-comment">-- ...</span>
+
+<span class="c-comment">-- 개선: Bulk Insert (1회 처리)</span>
+<span class="c-keyword">INSERT INTO</span> approval_data VALUES
+  (<span class="c-str">'row1'</span>), (<span class="c-str">'row2'</span>), (<span class="c-str">'row3'</span>); <span class="c-comment">-- N rows</span>
+
+<span class="c-comment">-- STRAIGHT_JOIN 제거 → 옵티마이저 위임</span>
+<span class="c-comment">-- Before: SELECT STRAIGHT_JOIN a.*, b.*</span>
+<span class="c-keyword">SELECT</span> a.*, b.*
+<span class="c-keyword">FROM</span> approval a
+<span class="c-keyword">JOIN</span> dept b <span class="c-keyword">ON</span> a.dept_id = b.id
+<span class="c-keyword">WHERE</span> a.status = <span class="c-str">'COMPLETE'</span>;</code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-tachometer-alt"></i> 처리 속도 대폭 개선</span>
+              <span class="rbadge blue"><i class="fas fa-database"></i> DB 부하 감소</span>
+              <span class="rbadge purple"><i class="fas fa-chart-line"></i> 데이터 증가에도 안정적 성능</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="portfolio-card" data-id="3">
+        <div class="pc-header">
+          <div class="pc-tag tag-blue"><i class="fas fa-code-branch"></i> Process Automation</div>
+          <div class="pc-num">03</div>
+        </div>
+        <h3>전자결재 프로세스 확장 — 수신→발주 부서 자동 연계</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>전자결재 흐름이 "기안 → 수신"에서 종료, 이후 발주 부서 전달이 수작업으로 이루어져 누락·지연 발생</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>결재 완료된 문서를 "발주 부서"까지 자동 전달하는 로직 추가</p>
+            <p>기존 프로세스 : 기안 부서 → 수신 부서 → 종료 </p>
+            <p>개선 프로세스 : 기안 부서 → 수신 부서 → 발주 부서 → 종료</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="process-flow">
+              <div class="pf-before">
+                <span class="pf-label">Before</span>
+                <div class="pf-steps">
+                  <div class="pf-step">기안 부서</div>
+                  <div class="pf-arrow">→</div>
+                  <div class="pf-step">수신 부서</div>
+                  <div class="pf-arrow">→</div>
+                  <div class="pf-step end">종료</div>
+                </div>
+              </div>
+              <div class="pf-after">
+                <span class="pf-label pf-label-green">After</span>
+                <div class="pf-steps">
+                  <div class="pf-step">기안 부서</div>
+                  <div class="pf-arrow">→</div>
+                  <div class="pf-step">수신 부서</div>
+                  <div class="pf-arrow">→</div>
+                  <div class="pf-step new">발주 부서 <span class="new-badge">NEW</span></div>
+                  <div class="pf-arrow">→</div>
+                  <div class="pf-step end">종료</div>
+                </div>
+              </div>
+            </div>
+            <div class="code-snippet" style="display: none;" >
+              <div class="cs-header">
+                <span class="cs-title"><i class="fab fa-java"></i> Java (Trigger Logic)</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment">// 결재 완료 시 후속 부서 전달 트리거</span>
+<span class="c-keyword">if</span> (approvalStatus == <span class="c-type">COMPLETE</span>) {
+    List&lt;Dept&gt; nextDepts = deptService
+        .getNextDepts(docId, <span class="c-str">"ORDER"</span>);
+    <span class="c-keyword">for</span> (Dept dept : nextDepts) {
+        docTransferService.transfer(docId, dept);
+        statusService.updateFlow(docId, dept, <span class="c-type">TRANSFERRED</span>);
+    }
+}</code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-robot"></i> 수작업 프로세스 제거</span>
+              <span class="rbadge blue"><i class="fas fa-users"></i> 부서 간 협업 효율 향상</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 4 -->
+      <div class="portfolio-card" data-id="4">
+        <div class="pc-header">
+          <div class="pc-tag tag-purple"><i class="fas fa-sms"></i> Notification System</div>
+          <div class="pc-num">04</div>
+        </div>
+        <h3>명령휴가 SMS 자동 알림 시스템 구축</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>명령휴가 대상자 공지가 수작업으로 이루어져 안내 누락, 커뮤니케이션 오류 빈번</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>날짜 기준 스케줄링으로 전일·당일 이중 알림을 자동화, 누락 Zero 체계 구축</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fab fa-java"></i> Java Scheduler + SMS API</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment">
+                // 특정 시간에 실행 되도록 스케줄러 등록
+@Scheduled(cron = "${config.cron.cmdLeaveSMSSend}")
+public void cmdLeaveSMSSend() throws Exception {
+		logger.debug("cmdLeaveSMSSend started");
+    // 1번 서버 ,2번 서버 중 등록된 서버에서 스케줄로 동작하도록 설정
+		if (!ezEmailScheduler.preScheduler("cmdLeaveSMSSend")) {
+			logger.debug("cmdLeaveSMSSend scheduler ended.");
+			return;
+		}
+    // 실제 sms 발송 로직
+		ezCmdLeaveService.cmdLeaveSMSSend();
+
+		logger.debug("cmdLeaveSMSSend ended");
+  }</code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-bell"></i> 공지 누락 Zero</span>
+              <span class="rbadge blue"><i class="fas fa-clock"></i> 업무 자동화</span>
+              <span class="rbadge purple"><i class="fas fa-comments"></i> 커뮤니케이션 정확도 향상</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 5 -->
+      <div class="portfolio-card" data-id="5">
+        <div class="pc-header">
+          <div class="pc-tag tag-teal"><i class="fas fa-hdd"></i> Infra Automation</div>
+          <div class="pc-num">05</div>
+        </div>
+        <h3>cron 기반 서버 디스크 자동 정리 시스템 구축</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>신규 오픈 사이트에서 백업·임시 파일이 정리되지 않아 디스크 사용량 지속 증가, Disk Full 장애 위험 존재</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>운영 영향 최소화 조건 하에서 Linux cron + Shell Script로 주기적 자동 정리 체계 수립</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fas fa-terminal"></i> Shell Script + Cron</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+             <pre><code><span class="c-comment">#!/bin/bash</span>
+<span class="c-comment"># [Example] 실제 운영 파일 정리 자동화 스크립트</span>
+<span class="c-comment"># 일정 기간이 지난 파일(백업, 업로드 등)을 주기적으로 삭제</span>
+
+<span class="c-comment"># 삭제 대상 경로 (예시)</span>
+TARGET_DIR=<span class="c-str">"/volumes/shared/ezFlow/fileroot/0/files/upload_approval/dsmc/backupdoc/"</span>
+
+<span class="c-comment"># 보관 기간 (30일)</span>
+DAYS=<span class="c-num">30</span>
+
+<span class="c-comment"># 30일 이상 지난 파일 삭제</span>
+find <span class="c-var">${TARGET_DIR}</span> -type f -mtime +<span class="c-var">${DAYS}</span> -delete
+
+
+<span class="c-comment"># 추가 경로 (여러 디렉토리 운영 시)</span>
+find /home/jmocha/ezEKP/ezFlow/logs -type f -mtime +30 -delete
+find /home/jmocha/ezEKP/jgw-server/logs -type f -mtime +30 -delete
+find /home/jmocha/ezEKP/ezSyncServer/logs -type f -mtime +30 -delete
+
+
+<span class="c-comment"># 특정 계정 권한으로 실행 (운영 환경 대응)</span>
+su - jmocha -c "find /volumes/shared/ezFlow/fileroot/0/files/upload_approval/dsmc/backupdoc/ -type f -mtime +30 -delete"
+</code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-hdd"></i> 디스크 사용량 안정화</span>
+              <span class="rbadge blue"><i class="fas fa-shield-alt"></i> Disk Full 장애 사전 예방</span>
+              <span class="rbadge purple"><i class="fas fa-cogs"></i> 운영 자동화</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 6 -->
+      <div class="portfolio-card" data-id="6">
+        <div class="pc-header">
+          <div class="pc-tag tag-red"><i class="fas fa-envelope"></i> Mail System</div>
+          <div class="pc-num">06</div>
+        </div>
+        <h3>메일 Queue 무한 루프 해결 — 라이브러리 패치 적용</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>메일 서버 Queue Stack 지속 적체, 전송 지연 및 시스템 부하 급상승. 메일박스 Full 상태에서 반송 메일이 무한 순환하는 구조적 결함 발견</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>메일 처리 파이프라인의 무한 루프 제거 및 Queue 정상화, 운영 환경 무중단 적용</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="mail-loop-diagram">
+              <div class="mld-step err">수신자 메일함 Full → 수신 실패</div>
+              <div class="mld-arrow">↓</div>
+              <div class="mld-step err">발신자에게 "메일함 Full" 안내 메일 발송</div>
+              <div class="mld-arrow">↓</div>
+              <div class="mld-step err">발신자 메일함도 Full → 반송 불가</div>
+              <div class="mld-arrow loop-arrow">↑ 무한 루프 ↓</div>
+              <div class="mld-step fix">✅ james-server-mailets-3.0.0-beta5-SNAPSHOT 패치 적용<br>→ 반송 처리 로직 개선, 루프 조건 차단</div>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-envelope-open"></i> Queue 정상화</span>
+              <span class="rbadge blue"><i class="fas fa-infinity"></i> 무한 루프 제거</span>
+              <span class="rbadge purple"><i class="fas fa-server"></i> 서버 부하 감소</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 7 -->
+      <div class="portfolio-card" data-id="7">
+        <div class="pc-header">
+          <div class="pc-tag tag-teal"><i class="fas fa-search"></i> Data Validation Tool</div>
+          <div class="pc-num">07</div>
+        </div>
+        <h3>20,000건 전자문서 시행일자 DB 정합성 자동 검증 툴 개발</h3>
+        <div class="star-grid">
+          <div class="star-item">
+            <span class="star-label s">Situation</span>
+            <p>신규 사이트 오픈 후 운영 단계에서 전자문서(HWP) 내 시행일자와 DB에 저장된 날짜 값의 불일치 여부를 전수 검증하는 요청 발생. 대상 문서 약 <strong>20,000건</strong>으로 수작업 검증 자체가 불가능한 상황. 또한 HWP 포맷과 DB 날짜 형식이 달라 단순 문자열 비교도 불가능했음</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label t">Task</span>
+            <p>전자문서·DB 간 데이터 정합성 검증 프로세스가 전무한 상태에서, 단독으로 <strong>대량 데이터 자동 비교 → 불일치 항목 추출 → HWP 파일 내 날짜 자동 수정 → 결과 로그 저장</strong>까지 전 과정을 수행하는 Java 전용 툴 설계·개발</p>
+          </div>
+          <div class="star-item">
+            <span class="star-label a">Action</span>
+            <div class="process-flow" style="margin-bottom:16px;">
+              <div class="pf-step"><span>① CSV 읽기</span><small>DB 날짜 추출</small></div>
+              <div class="pf-arrow">→</div>
+              <div class="pf-step"><span>② HWP 파싱</span><small>시행일자 추출</small></div>
+              <div class="pf-arrow">→</div>
+              <div class="pf-step"><span>③ 날짜 정규화</span><small>형식 통일</small></div>
+              <div class="pf-arrow">→</div>
+              <div class="pf-step"><span>④ 비교·수정</span><small>불일치 자동 교체</small></div>
+              <div class="pf-arrow">→</div>
+              <div class="pf-step"><span>⑤ 로그 저장</span><small>날짜별 기록</small></div>
+            </div>
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fab fa-java"></i> Java — HWP 정합성 검증 핵심 로직</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment">// 1. CSV(DB 데이터) vs HWP 파일 시행일자 자동 비교</span>
+<span class="c-keyword">while</span> ((line = br.readLine()) != <span class="c-keyword">null</span>) {
+    String[] values = line.split(<span class="c-str">","</span>);
+    String docId       = values[<span class="c-num">0</span>].trim(); <span class="c-comment">// 문서ID</span>
+    String hwpFilePath = values[<span class="c-num">1</span>].trim(); <span class="c-comment">// HWP 경로</span>
+    String enforceDate = values[<span class="c-num">2</span>].trim(); <span class="c-comment">// DB 시행일자</span>
+    checkHwpFile(docId, hwpFilePath, enforceDate);
+}
+
+<span class="c-comment">// 2. 날짜 형식 정규화 (CSV: yyyy-MM-dd HH:mm:ss.SSS → HWP: yyyy-MM-dd)</span>
+DateTimeFormatter csvFmt = DateTimeFormatter.ofPattern(<span class="c-str">"yyyy-MM-dd HH:mm:ss.SSS"</span>);
+LocalDate csvDate = LocalDateTime.parse(enforceDate, csvFmt).toLocalDate();
+<span class="c-keyword">boolean</span> datesMatch = csvDate.isEqual(hwpLocalDate); <span class="c-comment">// 정확한 날짜 비교</span>
+
+<span class="c-comment">// 3. 불일치 시: DB 값으로 HWP 내용 자동 교체 + 대상 목록 별도 CSV 추출</span>
+<span class="c-keyword">if</span> (!datesMatch) {
+    String formattedDate = csvDate.format(DateTimeFormatter.ofPattern(<span class="c-str">"yyyy-MM-dd"</span>));
+    setHwpText(<span class="c-str">"enforcedate"</span>, formattedDate, hwpFile); <span class="c-comment">// HWP 필드 교체</span>
+    out.println(docId + <span class="c-str">","</span> + hwpFilePath + <span class="c-str">","</span> + enforceDate); <span class="c-comment">// 불일치 목록 CSV 저장</span>
+    HWPWriter.toFile(hwpFile, newTempFilePath.toString()); <span class="c-comment">// HWP 파일 재기록</span>
+}
+
+<span class="c-comment">// 4. 실행 결과 날짜별 로그 파일로 자동 저장</span>
+String logPath = <span class="c-str">"logs/log-"</span> + LocalDate.now()
+    .format(DateTimeFormatter.ofPattern(<span class="c-str">"yyyyMMdd"</span>)) + <span class="c-str">".txt"</span>;
+System.setOut(<span class="c-keyword">new</span> PrintStream(<span class="c-keyword">new</span> FileOutputStream(logPath, <span class="c-keyword">true</span>)));</code></pre>
+            </div>
+          </div>
+          <div class="star-item">
+            <span class="star-label r">Result</span>
+            <div class="result-badges">
+              <span class="rbadge green"><i class="fas fa-bolt"></i> 20,000건 전자동 처리</span>
+              <span class="rbadge blue"><i class="fas fa-clock"></i> 수작업 대비 처리시간 99% 절감</span>
+              <span class="rbadge purple"><i class="fas fa-check-double"></i> 날짜 정합성 100% 검증 완료</span>
+              <span class="rbadge orange"><i class="fas fa-file-csv"></i> 불일치 목록 자동 추출·보고</span>
+            </div>
+            <div class="perf-compare" style="margin-top:14px;display:flex;gap:16px;flex-wrap:wrap;">
+              <div style="flex:1;min-width:160px;background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:12px 16px;">
+                <div style="color:#f87171;font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px;">BEFORE (수작업)</div>
+                <div style="font-size:1.4rem;font-weight:800;color:#f87171;">~40일+</div>
+                <div style="font-size:.8rem;color:var(--text-muted);margin-top:4px;">20,000건 수동 검토 예상 소요</div>
+              </div>
+              <div style="flex:1;min-width:160px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.3);border-radius:10px;padding:12px 16px;">
+                <div style="color:#4ade80;font-size:.75rem;font-weight:700;letter-spacing:.05em;margin-bottom:6px;">AFTER (자동화)</div>
+                <div style="font-size:1.4rem;font-weight:800;color:#4ade80;">수 분</div>
+                <div style="font-size:.8rem;color:var(--text-muted);margin-top:4px;">Java 툴 단독 실행으로 전량 처리</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== TECHNICAL CASE STUDY ========== -->
+<section class="casestudy-section" id="casestudy">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">TECHNICAL CASE STUDY</span>
+      <h2 class="section-title">심층 트러블슈팅 <span class="accent">케이스</span></h2>
+      <p class="section-sub">단순 수정이 아닌, 근본 원인 분석(RCA)부터 시스템 구조 개선까지</p>
+    </div>
+
+    <div class="case-tabs">
+      <button class="case-tab active" data-case="fd">
+        <i class="fas fa-file-alt"></i> FD Leak
+      </button>
+      <button class="case-tab" data-case="mail">
+        <i class="fas fa-envelope"></i> Mail Loop
+      </button>
+      <button class="case-tab" data-case="db">
+        <i class="fas fa-database"></i> DB Tuning
+      </button>
+    </div>
+
+    <div class="case-content">
+      <!-- FD Leak -->
+      <div class="case-panel active" id="case-fd">
+        <div class="case-header">
+          <div class="case-severity critical">CRITICAL</div>
+          <h3>SocketException: Too Many Open Files — FD Leak RCA</h3>
+          <p class="case-summary">이미지 처리 로직의 InputStream 미종료로 인한 File Descriptor 점진적 증가, 서비스 전면 장애 유발</p>
+        </div>
+        <div class="case-body">
+          <div class="case-timeline">
+            <div class="ct-item">
+              <div class="ct-dot red"></div>
+              <div class="ct-content">
+                <strong>탐지 (Detection)</strong>
+                <p>서비스 접속 불가 알림 → <code>SocketException: Too many open files</code> 에러 로그 확인</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot orange"></div>
+              <div class="ct-content">
+                <strong>분석 (Root Cause Analysis)</strong>
+                <p><code>ls -l /proc/&lt;PID&gt;/fd | wc -l</code> 명령으로 FD 수가 ulimit(65535)에 근접함을 확인. 이미지 처리 코드에서 <code>InputStream</code>을 <code>close()</code> 없이 사용하는 패턴 식별 — GC 의존 방식으로 인해 FD 반환 지연 발생</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot yellow"></div>
+              <div class="ct-content">
+                <strong>조치 (Remediation)</strong>
+                <p> InputStream close 처리 추가 , 파일 처리 로직 전반을 리팩토링. </p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot green"></div>
+              <div class="ct-content">
+                <strong>검증 (Verification)</strong>
+                <p>배포 후 <code>/proc/&lt;PID&gt;/fd</code> 수치 안정화 확인, 이후 동일 장애 재발 0건</p>
+              </div>
+            </div>
+          </div>
+          <div class="case-code-block">
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fab fa-java"></i> Before / After 비교</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+             <pre><code><span class="c-comment">// ❌ Before: 스트림 생성 방식 문제로 FD 누수 가능</span>
+<span class="c-keyword">try</span> {
+    <span class="c-keyword">if</span>(imgSrc.contains(<span class="c-str">"222.106.xxx.xxx"</span>)){
+        <span class="c-keyword">continue</span>;
+    }<span class="c-keyword">else</span>{
+        contentType = URLConnection.guessContentTypeFromStream(
+            Files.newInputStream(Paths.get(realPath + imgSrc))
+        );
+    }
+} <span class="c-keyword">catch</span> (IOException e) {
+    <span class="c-comment">// 예외 발생 시 default 값 사용</span>
+} <span class="c-keyword">finally</span> {
+    <span class="c-keyword">if</span> (tempIn != <span class="c-keyword">null</span>) {
+        tempIn.close();
+    }
+}
+
+
+<span class="c-comment">// ✅ After: InputStream 명확히 생성 및 close 처리</span>
+<span class="c-keyword">try</span> {
+    <span class="c-keyword">if</span>(imgSrc.contains(<span class="c-str">"222.106.xxx.xxx"</span>)){
+        <span class="c-keyword">continue</span>;
+    }<span class="c-keyword">else</span>{
+        tempIn = Files.newInputStream(Paths.get(realPath + imgSrc));
+        contentType = URLConnection.guessContentTypeFromStream(tempIn);
+    }
+} <span class="c-keyword">catch</span> (IOException e) {
+    <span class="c-comment">// 예외 발생 시 default 값 사용</span>
+} <span class="c-keyword">finally</span> {
+    <span class="c-keyword">if</span> (tempIn != <span class="c-keyword">null</span>) {
+        tempIn.close();
+    }
+}
+</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mail Loop -->
+      <div class="case-panel" id="case-mail">
+        <div class="case-header">
+          <div class="case-severity high">HIGH</div>
+          <h3>메일 서버 Queue 무한 루프 — Apache James Mailets 패치</h3>
+          <p class="case-summary">메일박스 Full 상태에서 반송 메일이 순환하며 Queue가 무한 증가, 메일 서비스 마비 직전 상태</p>
+        </div>
+        <div class="case-body">
+          <div class="case-timeline">
+            <div class="ct-item">
+              <div class="ct-dot red"></div>
+              <div class="ct-content">
+                <strong>탐지</strong>
+                <p>메일 전송 지연 신고 증가 → 서버 Queue 모니터링에서 스택 크기 지속 증가 확인</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot orange"></div>
+              <div class="ct-content">
+                <strong>RCA</strong>
+                <p>메일 처리 파이프라인 분석: ① 수신자 메일함 Full → 수신 실패 ② 발신자에게 NDR(Non-Delivery Report) 발송 ③ 발신자 메일함도 Full → NDR 반송 실패 ④ ②-③ 루프 반복. Apache James 해당 버전의 <strong>bounce 처리 루프 가드 미흡</strong>이 근본 원인</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot yellow"></div>
+              <div class="ct-content">
+                <strong>조치</strong>
+                <p><code>james-server-mailets-3.0.0-beta5-SNAPSHOT</code> 패치 버전 조사 및 검증. Maven 의존성 교체 후 테스트 환경 반영, 반송 처리 루프 가드 정상 동작 확인 후 운영 배포</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot green"></div>
+              <div class="ct-content">
+                <strong>결과</strong>
+                <p>Queue 정상화, 무한 루프 제거, 메일 처리 정상화 및 서버 부하 감소</p>
+              </div>
+            </div>
+          </div>
+          <div class="case-code-block" style="display: none;">
+            <div class="code-snippet">
+              <div class="cs-header">
+                <span class="cs-title"><i class="fas fa-cube"></i> Maven pom.xml 패치</span>
+                <button class="cs-copy" onclick="copyCode(this)"><i class="fas fa-copy"></i></button>
+              </div>
+              <pre><code><span class="c-comment">&lt;!-- 기존 mailets 버전 --&gt;</span>
+&lt;<span class="c-type">dependency</span>&gt;
+  &lt;<span class="c-type">groupId</span>&gt;org.apache.james&lt;/<span class="c-type">groupId</span>&gt;
+  &lt;<span class="c-type">artifactId</span>&gt;james-server-mailets&lt;/<span class="c-type">artifactId</span>&gt;
+  &lt;<span class="c-type">version</span>&gt;<span class="c-str">3.0.0-beta4</span>&lt;/<span class="c-type">version</span>&gt;
+&lt;/<span class="c-type">dependency</span>&gt;
+
+<span class="c-comment">&lt;!-- 패치 버전 적용 --&gt;</span>
+&lt;<span class="c-type">dependency</span>&gt;
+  &lt;<span class="c-type">groupId</span>&gt;org.apache.james&lt;/<span class="c-type">groupId</span>&gt;
+  &lt;<span class="c-type">artifactId</span>&gt;james-server-mailets&lt;/<span class="c-type">artifactId</span>&gt;
+  &lt;<span class="c-type">version</span>&gt;<span class="c-var">3.0.0-beta5-SNAPSHOT</span>&lt;/<span class="c-type">version</span>&gt;
+  <span class="c-comment">&lt;!-- Bounce loop guard 개선 포함 --&gt;</span>
+&lt;/<span class="c-type">dependency</span>&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DB Tuning -->
+      <div class="case-panel" id="case-db">
+        <div class="case-header">
+          <div class="case-severity medium">MEDIUM</div>
+          <h3>전자결재 DB 성능 저하 — 실행 계획 최적화 & Bulk Insert</h3>
+          <p class="case-summary">데이터 증가에 따른 N+1 INSERT 패턴 및 STRAIGHT_JOIN 고정 조인 순서로 인한 실행 계획 비최적화</p>
+        </div>
+        <div class="case-body">
+          <div class="case-timeline">
+            <div class="ct-item">
+              <div class="ct-dot orange"></div>
+              <div class="ct-content">
+                <strong>현상 분석</strong>
+                <p>EXPLAIN 실행 계획 확인 → <code>STRAIGHT_JOIN</code>으로 인해 소규모 테이블이 드라이빙 테이블로 고정, 데이터 증가 시 Full Table Scan 빈도 증가</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot yellow"></div>
+              <div class="ct-content">
+                <strong>INSERT 패턴 분석</strong>
+                <p>루프 내 단건 INSERT 패턴 식별 → 건당 DB 커넥션 왕복 발생 (N+1 INSERT), 트랜잭션 오버헤드 누적</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot yellow"></div>
+              <div class="ct-content">
+                <strong>최적화 조치</strong>
+                <p>① <code>STRAIGHT_JOIN</code> 제거 → 옵티마이저 자율 실행 계획 위임 ② 건별 INSERT → Bulk INSERT 변환 ③ 조인 컬럼 인덱스 추가 및 커버링 인덱스 검토</p>
+              </div>
+            </div>
+            <div class="ct-item">
+              <div class="ct-dot green"></div>
+              <div class="ct-content">
+                <strong>결과</strong>
+                <p>전자결재 처리 속도 대폭 개선, 데이터 증가에도 안정적 응답 시간 유지, DB 부하 감소</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMMIT LOG SHOWCASE ========== -->
+<section class="commitlog-section" id="commitlog">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">REAL WORK LOG</span>
+      <h2 class="section-title">실제 커밋 &amp; 이슈 <span class="accent">해결 이력</span></h2>
+      <p class="section-sub">그룹웨어 운영·고도화 과정에서 직접 처리한 이슈와 커밋 로그 샘플 — 전자결재·ERP연동·보안·성능·자동화 등 다양한 도메인 실제 이슈 <strong style="color:var(--accent)">100건+</strong> 수록</p>
+    </div>
+
+    <!-- 도메인별 이슈 통계 -->
+    <div class="issue-stats-grid">
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#6366f1"><i class="fas fa-file-signature"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">45<span>%</span></div>
+          <div class="ist-label">전자결재</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:45%;background:#6366f1"></div></div>
+        </div>
+      </div>
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#f472b6"><i class="fas fa-link"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">20<span>%</span></div>
+          <div class="ist-label">ERP 연동</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:20%;background:#f472b6"></div></div>
+        </div>
+      </div>
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#4ade80"><i class="fas fa-clipboard-check"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">10<span>%</span></div>
+          <div class="ist-label">자기점검</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:10%;background:#4ade80"></div></div>
+        </div>
+      </div>
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#22d3ee"><i class="fas fa-cog"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">8<span>%</span></div>
+          <div class="ist-label">자원·설문·일정</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:8%;background:#22d3ee"></div></div>
+        </div>
+      </div>
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#fb923c"><i class="fas fa-tachometer-alt"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">10<span>%</span></div>
+          <div class="ist-label">성능·보안·인프라</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:10%;background:#fb923c"></div></div>
+        </div>
+      </div>
+      <div class="ist-card">
+        <div class="ist-icon" style="color:#94a3b8"><i class="fas fa-robot"></i></div>
+        <div class="ist-info">
+          <div class="ist-num">7<span>%</span></div>
+          <div class="ist-label">자동화·메일·기타</div>
+          <div class="ist-bar"><div class="ist-fill" style="--w:7%;background:#94a3b8"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 커밋 로그 피드 -->
+    <div class="commit-feed-wrap">
+      <div class="cf-filter-row">
+        <button class="cf-filter active" data-filter="all">All</button>
+        <button class="cf-filter" data-filter="오류"><i class="fas fa-bug"></i> 오류</button>
+        <button class="cf-filter" data-filter="개선"><i class="fas fa-arrow-up"></i> 개선</button>
+        <button class="cf-filter" data-filter="개발"><i class="fas fa-code"></i> 개발</button>
+        <button class="cf-filter" data-filter="성능"><i class="fas fa-tachometer-alt"></i> 성능</button>
+      </div>
+
+      <div class="commit-feed" id="commitFeed">
+
+        <!-- ===== 이미지1: 상단 로그 ===== -->
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">자동화</span><span class="ci-text">발송 단계 로그 추가 — 메일·SMS 발송 파이프라인 단계별 로깅 구현</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">보안</span><span class="ci-text">세무조사관 그룹웨어 접근 제한 및 문서 조회 년도 고정 개선 건</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#175159 전자결재 협조전 수신처에서 접수 후 결재선 변경 시 제목 미노출 현상 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#175850 2025년 기안 2026년 최종결재 케이스 중 문서번호가 2026년도 기준으로 생성된 케이스에 대한 확인요청</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">게시판</span><span class="ci-text">#175357 그룹웨어 게시판 약식 양식 변경 문의</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#172208 수신문 결재유형 전결후열 기안문서 정보 누락 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#170490 문서대장 하위 통제발송부 좌메뉴 클릭시 화면 페이징 미처리 확인 요청 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">보안</span><span class="ci-text">#171453 그룹웨어 보안취약점 개선 — CSRF·SQL Injection 등 취약점 패치</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#167282 전자결재 현금거래 모니터링 일지 결재선 오류 현상 확인 — div 생성되지 않도록 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#170613 전자결재 진행문서·완료문서 둘 다 존재하는 현상 — 채번오류 작년도·올해 시리얼넘버 충돌 해결 (record 처리)</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">게시판</span><span class="ci-text">#169494 게시글 상단 고정 지정 후 게시글 수정시 상단 고정 유지되게 설정 작업</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#169048 통제발송 방어 로직 추가 + 발송수신대장(대외) 화면 건수 및 실제 조회 데이터 상이 및 페이징 처리 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#167889 전자결재 통제발송 관련 오류 — 방어로직 구현</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">#166478 신설 중부법인금융팀 대면문서 등록시 문서번호 접두사 오류 — 타임아웃 추가</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">권한</span><span class="ci-text">#167332 아르바이트생 우편물 관리 화면 접근시 접근 권한 불가 확인 — DB에서 우편물 권한 부여된 아이디 확인 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">#164714 연동 결재시 결재자 6명이상 케이스 중 일부 결재라인 문서 누락 케이스 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#165032 자기점검 개인별 점검항목 관리 담당업무 안보이는 문의 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#164717 감사일지 결재 완료 후 수신문 진행시 상근감사위원 항목 정보 미노출 수정</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">DB</span><span class="ci-text">#163916 그룹웨어 성능 이슈 API — 인덱스 힌트 추가 후 서브쿼리 limit 20 추출→select→join 방식으로 쿼리 개선</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#161712 개인병력합의건 최종결재자가 태블릿에서 결재 승인 시 결재 되지 않는 현상 해결</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">#164552 연동 결재 케이스 결재라인 6인이상일 경우 결재라인 포맷 오류 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#163875 대면보고의 목록 조회에서 첨부파일 유무만 확인 가능하게 개선</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자기점검</span><span class="ci-text">#163481 인사발령 이후 자기점검 관리자 현상에 대한 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자기점검</span><span class="ci-text">#162829 자기점검 점검기간 유효성 체크 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#161715 자기점검 부서별 점검대상 관리 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#159594 명령휴가 SMS 운영계 발송 케이스 확인 요청 처리</span></div>
+
+        <!-- ===== 이미지2: 중단 로그 ===== -->
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#159577 반려함 카운트 미노출 및 겹침 상태일 경우 반려함 알림창 노출 기준 확인 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#162068 특정 기안자 결재유형 일상감사 케이스 진행 상태 오류 현상 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자설문</span><span class="ci-text">#161721 전자설문 임시저장 시 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#161489 전자결재 날인대기함에 발송까지 끝난 건 노출 현상 — 화면창 하나만 로드되게 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#160143 전자결재 문서분류 추가 방법 문의 — 관리자 문서분류 아이디 값 생성 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">차량관리</span><span class="ci-text">#159182 차량사용신청 대상 식별 쿼리 변경 — 고객사 측에서 요청한 쿼리로 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">사용자관리</span><span class="ci-text">#158106 관리자 사용자정지 화면 페이징 처리 오류 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자설문</span><span class="ci-text">#158052 전자설문 질문 작성 시 이동 아이콘 동적 위치 설정 변경 요청 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">게시판</span><span class="ci-text">#158689 신고센터 게시판 매뉴얼 및 화면 노출 상담원 정보 변경 요청</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자설문</span><span class="ci-text">#156867 전자설문 중복응답 허용 시 기기 저장 문의 — "응답이 저장되었습니다." alert 후 설문 종료되는 현상 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#157369 자기점검실시 결과보기의 엑셀저장 오류 — 자기점검 실시하지 않았더라도 엑셀 저장 가능하게 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154214 특정인원 전자결재 기안지 작성 중 임시저장 시 오류 및 채번 오류 로그 보강 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자원관리</span><span class="ci-text">#155657 지원역량 관리자 권한 데이터 확인 — 화면상 지원의 수와 실제 수 불일치 쿼리 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">사용자관리</span><span class="ci-text">#155168 추가 집계 개편에 따른 동일 명칭 부서코드 변경 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#156055 수신부서 협조전 최종결재자 결재유형 후열일 경우 기안기 결재일시 누락 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154606 협조전(외부메신저 이용 신청서) 결재선 사용자 결재타입 전결일 경우 경고창 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">전자결재 결재선 등록 시 특정 직위명 결측 시 표출되게 수정 (커스텀 직위코드 처리)</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">채번 오류 발생 시 (블랙플래그 생성 + 채번순서 동일) 블랙플래그 1번 행 삭제 로직 구현</span></div>
+
+        <!-- ===== 이미지3: 스케줄러·ERP 로그 ===== -->
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">연동 실패한 문서 스케줄러 돌려서 결재 시 누락된 부분 추가 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">전자결재 연동 스케줄러를 통해 재연동 시키는 프로세스에 ERP 측 프로시저 호출 부분 추가</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#178879 지출결의 문서 삭제 프로세서 문의 — ExcuteInfo() 실행 순서 조정</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">DB</span><span class="ci-text">결재선 14명 넘어가면 인덱스 순서 꼬이는 부분 수정 — 인덱스 재설계</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">일정관리</span><span class="ci-text">#177654 그룹웨어 일정관리 달력 일요일이 1일일경우 이전 달 달력 안보이도록 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대동산의료원 176778 기록물철 업무담당자 지정오류 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">사용자관리</span><span class="ci-text">계명대동산의료원 라스트 로그인 날짜 표출 개선</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">외부직무교육 승인신청서 — HIS에서 신청자 및 교육내용 정보를 넘겨받아 그룹웨어 외부직무교육 승인신청서 연동 개발</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">30만원 이상인 경우에 연동문서만 수신처의 의견 확인 가능하도록 추가 로직 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#168704 전자결재 오류 — 문서 진행 상태 비정상 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">전자결재 연동 실패한 문서 상태값 변경하는 스케줄러 시간 설정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#167388 지출결의서 회수 후 카드증빙 오류 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">#163377 특정 양식 수신자설정 기능 개발</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대학고등산의료원 네트워크 이슈로 연동 중단 시 스케줄러를 통한 상태값 업데이트 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">#161608 접수자전결 후 확인버튼 클릭시 alert창 표출 후 진행하도록 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">[기록물철다중인계 추가 수정] 오라클 쿼리 추가 및 쿼리 튜닝 — listtype 195 관련 5개 항목 추가, TBL_LISTOPTION 기본 Data 추가</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">[기록물철다중인계 기능추가] 관리자기능 → 전자결재 → 기록물철 인계 기능 추가</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">보안</span><span class="ci-text">로그인 비밀번호 maxLength 50 추가</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#162061 검토자 문서 수정 기능 — 문서제목 수정 후 바로 결재 올리면 제목 변경 안되는 부분 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">자동화</span><span class="ci-text">#160031 | #159434 | #159152 한번 결재된 문서 중복으로 결재 못하게 막는 로직 구현</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#160167 의간대 청구서 회송불가 및 삭제 불가 — 처리부서에서 회송시 문서번호 유무 확인 Creceiptnumber 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">자원관리</span><span class="ci-text">#159530 자원관리 기능개선 — 연락처 미기재라면 예약이 불가능하게 제한하는 기능 추가</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">게시판</span><span class="ci-text">#154865 영어 대소문자 검색 — 빈문자열일 경우 쿼리에서 조회 안되는 부분 추가 수정, 게시판/전자결재 페이지 대소문자 선택적 구별 가능하게 개선</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#158057 결재 및 알림접수 오류 — 일괄결재시 체크섬으로 문서가 현재 본인이 선택한 부서 기안 확인 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">수신문서 최종결재 완료 시 DOCNUMCODE가 존재하지 않는다면 최종결재자가 아닌 기간(접수)자의 처리 로직 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154923 배부된 문서의 결재오류 — 문서 회수 후 배부 과정 중 문서번호가 이미 기입되어 있는 문서 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#153396 기안자의 부서와 문서번호 상의 부서가 상이함 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#153393 [JAVA] 포탈 팝업공지 미표출 오류 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대학교 연동문서 추가개발 — 의과대 청구서·수리발주의뢰서·간호연장근무합계 연동 양식 단독 개발</span></div>
+
+        <!-- ===== 이미지4: 하단 로그 ===== -->
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">분개전표 연동문서 추가개발 — ERP 데이터 파싱 및 그룹웨어 연동 양식 단독 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">메일</span><span class="ci-text">#151314 메일 보내기 오류 확인 요청 (긴급 확인요청) 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">#148053 ERP 연동된 지출결의서 그룹웨어 상태값 오류 관련 디버깅 로그 추가</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">모바일</span><span class="ci-text">#148158 모바일 버전 속도 개선 요청 — 디버깅에서 nullPointException 오류 난 부분 주석처리 및 개선</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">ERP연동</span><span class="ci-text">#146141 그룹웨어 연동문서 전자결재 속도 개선 — tbl_noification 반복문 insert → Bulk Insert 방식으로 변경</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">ERP연동</span><span class="ci-text">연동시 String 데이터 처리하는 과정 속도 개선 — 문자열 처리 최적화</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#146157 [JAVA] 공람즐겨찾기 수정 오류 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#142551 [JAVA] 중간 결재자 이후 참조자의 결재 상태 오류 / #143048 mht양식에서 '확인' 유형의 결재자가 부재설정 시 직전 결재자 다시 확인되는 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#141569 [JAVA] 임시저장시 저장이 안되는 오류 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">전자결재 &gt; 부서수신함 &gt; 검색 기간 조건에 UTC 시간 적용</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">차량관리</span><span class="ci-text">voc.kaoni.com (#138962) SFC 차량관리 메뉴 수정 요청 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">차량관리</span><span class="ci-text">voc.kaoni.com (#137733) SFC 그룹웨어 차량관리 메뉴 문의 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">차량관리</span><span class="ci-text">voc.kaoni.com (#136348) 차량 예약 개선 — 현재 날짜 기준으로 현재 달만 예약이 가능하게 변경</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">홈화면</span><span class="ci-text">voc.kaoni.com (#134676) 그룹웨어 홈화면 생일자 표기 — DB 0000-00-00 형식 말고 00000000 형식으로 변경</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">게시판</span><span class="ci-text">voc.kaoni.com (#134143) 표준모듈 오류&amp;폐지 — 익명게시판 모바일 조회수 오류 수정</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">DB</span><span class="ci-text">voc.kaoni.com (#132938) ERP 그룹웨어 전자결재 결재 느림 현상 — 튜플 카운팅 쿼리 사용 안하는 부분에서 속도 개선</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">voc.kaoni.com (#131411) 그룹웨어 지출결의서 연동 — 모바일에서 최종 결재시 데이터 중복 삽입 되어있을 경우 처리</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">DB</span><span class="ci-text">voc.kaoni.com (#130940) 업무관리 느림 현상 — 사용하지 않는 쿼리 조건 제거 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">인프라</span><span class="ci-text">서버 ip 변경 작업 — 그룹웨어 모든 내 ip 변경, AuthenticInterceptor.java CSRF 설정 erp연동 측 ip 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">팝업 등록 시 원하는 요일 선택하여 등록 가능하게 수정 및 pom.xml 로컬 설정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#152655 전자문서뷰어 전송파일 용량 확대에 따른 조치 (추가 수정)</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#146667 [JAVA] 점검부서의 대결문서 첨부파일 다운 오류 (EzApprovalG.checkProxyAprLine) 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#150173 [JAVA] 공지사항 포틀릿 예약게시글 표출 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자원관리</span><span class="ci-text">#149766 [JAVA] 자원관리 오류 패치 적용</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">일정관리</span><span class="ci-text">[일정관리] 음력 12월 30일 없는 경우 음력 12월 29일에 표출되도록 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#140901 설문조사를 등록하였는데 1명이 다중 투표로 나와서 확인 — 다중 투표 방지 로직 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">#147005 ERP 문서 연동 오류 — erp측 ssl 인증서 적용 후 도메인명 변경, 그룹웨어 소스코드 도메인 수정 적용</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">게시판</span><span class="ci-text">#146133 팝업공지 시 하이퍼링크 문의 — voc 분석 중 발견한 별도 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자원관리</span><span class="ci-text">#143375 자원예약 오류 — 빈 날짜에 자원예약이 안되는 오류 / 중복 예약 확인 과정 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#143220 [JAVA] 수기입력시 발생하는 문제 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">메일</span><span class="ci-text">#142892 그룹웨어 문서보기에서 이메일 발송 버튼 클릭 시 '빈 파일은 첨부할 수 없습니다.' 오류 메시지 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">사용자관리</span><span class="ci-text">사용자 정지 안되는 오류 — masteradmin 사용여부에 따라 사용자 정지 여부 로직 처리 (Revert 후 재적용)</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#137198 월합급간기양식의 경우 중간결재자가 편집모드를 이용하면 결재선을 전부 지울 수 있는 오류 수정</span></div>
+
+        <!-- ===== 이미지 추가분: 이미지1 상단 누락 이슈 ===== -->
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">보안</span><span class="ci-text">세무조사관 그룹웨어 문서 조회 년도 고정 개선 — 특정 역할에 한해 열람 연도를 고정하는 접근제어 로직 추가</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">자동화</span><span class="ci-text">발송 단계 로그 추가 — 메일·SMS 발송 파이프라인 단계별 로깅 구현 (발송 실패 원인 추적 용이)</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#175850 2025년 기안 2026년 최종결재 케이스 중 문서번호 연도 기준 충돌 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#169048 통제발송 발송수신대장(대외) 건수·실제조회 데이터 상이 및 페이징 처리 오류 수정 + 방어 로직 추가</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#167889 전자결재 통제발송 관련 오류 — 방어 로직 구현</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">권한</span><span class="ci-text">#167332 아르바이트생 우편물 관리 화면 접근 권한 불가 — DB에서 우편물 권한 부여된 아이디 확인 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#165032 자기점검 개인별 점검항목 관리 담당업무 미노출 오류 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#164717 감사일지 결재 완료 후 수신문 진행 시 상근감사위원 항목 정보 미노출 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#161712 개인병력합의건 최종결재자 태블릿 결재 승인 시 결재 되지 않는 현상 해결</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#163875 대면보고 목록 조회 시 첨부파일 유무만 확인 가능하게 개선</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자기점검</span><span class="ci-text">#163481 인사발령 이후 자기점검 관리자 현상 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자기점검</span><span class="ci-text">#162829 자기점검 점검기간 유효성 체크 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#161715 자기점검 부서별 점검대상 관리 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#159594 명령휴가 SMS 운영계 발송 케이스 확인 요청 처리</span></div>
+
+        <!-- ===== 이미지 추가분: 이미지3 누락 이슈 ===== -->
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#178879 지출결의 문서 삭제 프로세서 문의 — ExcuteInfo() 실행 순서 조정</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">DB</span><span class="ci-text">결재선 14명 초과 시 인덱스 순서 꼬이는 현상 수정 — 인덱스 재설계로 근본 원인 해결</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">일정관리</span><span class="ci-text">#177654 그룹웨어 일정관리 달력 일요일이 1일일 경우 이전 달 달력 미노출 현상 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대동산의료원 #176778 기록물철 업무담당자 지정 오류 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">사용자관리</span><span class="ci-text">계명대동산의료원 라스트 로그인 날짜 표출 개선</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">외부직무교육 승인신청서 — HIS에서 신청자 및 교육내용 정보를 넘겨받아 그룹웨어 외부직무교육 승인신청서 연동 개발</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">30만원 이상인 경우 연동문서만 수신처의 의견 확인 가능하도록 추가 로직 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#168704 전자결재 오류 — 문서 진행 상태 비정상 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">전자결재 연동 실패한 문서 상태값 변경하는 스케줄러 시간 설정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#167388 지출결의서 회수 후 카드증빙 오류 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">#163377 특정 양식 수신자 설정 기능 개발</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대고등산의료원 네트워크 이슈로 연동 중단 시 스케줄러를 통한 상태값 업데이트 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">#161608 접수자전결 후 확인버튼 클릭 시 alert창 표출 후 진행하도록 수정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">[기록물철다중인계 추가 수정] 오라클 쿼리 추가 및 쿼리 튜닝 — listtype 195 관련 5개 항목 추가, TBL_LISTOPTION 기본 Data 추가</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">[기록물철다중인계 기능추가] 관리자기능 → 전자결재 → 기록물철 인계 기능 추가</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#162061 검토자 문서 수정 기능 — 문서제목 수정 후 바로 결재 올리면 제목 변경 안되는 부분 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">자동화</span><span class="ci-text">#160031 | #159434 | #159152 한번 결재된 문서 중복으로 결재 못하게 막는 로직 구현</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#160167 의간대 청구서 회송불가 및 삭제 불가 — 처리부서에서 회송 시 문서번호 유무 확인 Creceiptnumber 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">자원관리</span><span class="ci-text">#159530 자원관리 기능개선 — 연락처 미기재 시 예약 불가능하게 제한하는 기능 추가</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#158057 결재 및 알림접수 오류 — 일괄결재 시 체크섬으로 문서가 현재 본인이 선택한 부서 기안 확인 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">수신문서 최종결재 완료 시 DOCNUMCODE가 존재하지 않으면 최종결재자 대신 기안(접수)자의 처리 로직 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154923 배부된 문서의 결재오류 — 문서 회수 후 배부 과정 중 문서번호 이미 기입된 문서 처리</span></div>
+
+        <!-- ===== 이미지 추가분: 이미지4 누락 이슈 ===== -->
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">분개전표 연동문서 추가개발 — ERP 데이터 파싱 및 그룹웨어 연동 양식 단독 개발</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">메일</span><span class="ci-text">#151314 메일 보내기 오류 확인 요청 (긴급) 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">ERP연동</span><span class="ci-text">#148053 ERP 연동된 지출결의서 그룹웨어 상태값 오류 관련 디버깅 로그 추가</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">모바일</span><span class="ci-text">#148158 모바일 버전 속도 개선 요청 — NullPointerException 오류 주석처리 및 개선</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#140901 설문조사 등록 시 1명이 다중 투표로 집계 — 다중 투표 방지 로직 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">게시판</span><span class="ci-text">#146133 팝업공지 하이퍼링크 문의 — voc 분석 중 발견한 별도 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#143220 [JAVA] 수기입력 시 발생하는 문제 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">메일</span><span class="ci-text">#142892 그룹웨어 문서보기에서 이메일 발송 버튼 클릭 시 '빈 파일은 첨부할 수 없습니다.' 오류 메시지 처리</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">사용자관리</span><span class="ci-text">사용자 정지 안되는 오류 — masteradmin 사용여부에 따라 사용자 정지 여부 로직 처리 (Revert 후 재적용)</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">팝업 등록 시 원하는 요일 선택하여 등록 가능하게 수정 및 pom.xml 로컬 설정</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#152655 전자문서뷰어 전송파일 용량 확대에 따른 조치</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#146667 [JAVA] 점검부서의 대결문서 첨부파일 다운 오류 (EzApprovalG.checkProxyAprLine) 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#150173 [JAVA] 공지사항 포틀릿 예약게시글 표출 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자원관리</span><span class="ci-text">#149766 [JAVA] 자원관리 오류 패치 적용</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">일정관리</span><span class="ci-text">[일정관리] 음력 12월 30일 없는 경우 음력 12월 29일에 표출되도록 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">ERP연동</span><span class="ci-text">#147005 ERP 문서 연동 오류 — ssl 인증서 적용 후 도메인명 변경, 그룹웨어 소스코드 도메인 수정 적용</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자원관리</span><span class="ci-text">#143375 자원예약 빈 날짜 예약 오류 및 중복 예약 확인 과정 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">인프라</span><span class="ci-text">서버 ip 변경 작업 — 그룹웨어 모든 내 ip 변경, AuthenticInterceptor.java CSRF 설정 ERP연동 측 ip 수정</span></div>
+
+        <!-- ===== 이미지5: 추가 이슈 (이미지2에서 상세 추가분) ===== -->
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#159577 반려함 카운트 미노출 및 겹침 상태일 경우 반려함 알림창 노출 기준 확인 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#162068 특정 기안자 결재유형 일상감사 케이스 진행 상태 오류 현상 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자설문</span><span class="ci-text">#161721 전자설문 임시저장 시 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#161489 전자결재 날인대기함에 발송까지 끝난 건 노출 현상 — 화면창 하나만 로드되게 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자결재</span><span class="ci-text">#160143 전자결재 문서분류 추가 방법 문의 — 관리자 문서분류 아이디 값 생성 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">차량관리</span><span class="ci-text">#159182 차량사용신청 대상 식별 쿼리 변경 — 고객사 측에서 요청한 쿼리로 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">사용자관리</span><span class="ci-text">#158106 관리자 사용자정지 화면 페이징 처리 오류 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자설문</span><span class="ci-text">#158052 전자설문 질문 작성 시 이동 아이콘 동적 위치 설정 변경 요청 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">게시판</span><span class="ci-text">#158689 신고센터 게시판 매뉴얼 및 화면 노출 상담원 정보 변경 요청</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">전자설문</span><span class="ci-text">#156867 전자설문 중복응답 허용 시 기기 저장 문의 — "응답이 저장되었습니다." alert 후 설문 종료되는 현상 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">자기점검</span><span class="ci-text">#157369 자기점검실시 결과보기의 엑셀저장 오류 — 자기점검 실시하지 않았더라도 엑셀 저장 가능하게 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154214 특정인원 전자결재 기안지 작성 중 임시저장 시 오류 및 채번 오류 로그 보강 처리</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">자원관리</span><span class="ci-text">#155657 지원역량 관리자 권한 데이터 확인 — 화면상 지원의 수와 실제 수 불일치 쿼리 수정</span></div>
+        <div class="commit-item" data-type="문의"><span class="ci-type qna"><i class="fas fa-question-circle"></i> 문의</span><span class="ci-domain">사용자관리</span><span class="ci-text">#155168 추가 집계 개편에 따른 동일 명칭 부서코드 변경 확인 요청 처리</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#156055 수신부서 협조전 최종결재자 결재유형 후열일 경우 기안기 결재일시 누락 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#154606 협조전(외부메신저 이용 신청서) 결재선 사용자 결재타입 전결일 경우 경고창 처리</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">전자결재 결재선 등록 시 특정 직위명 결측 시 표출되게 수정 (커스텀 직위코드 처리)</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">전자결재</span><span class="ci-text">채번 오류 발생 시 (블랙플래그 생성 + 채번순서 동일) 블랙플래그 1번 행 삭제 로직 구현</span></div>
+
+        <!-- ===== 이미지6: 추가 상세 이슈 및 자동화 툴 ===== -->
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">#154865 영어 대소문자 검색 관련 — 전자결재 페이지 (결재문서/완료문서) 대소문자 선택적으로 구별 가능하게 개선</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#153396 기안자의 부서와 문서번호 상의 부서가 상이함 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#153393 [JAVA] 포털 팝업공지 미표출 오류 수정</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">ERP연동</span><span class="ci-text">계명대학교 연동문서 추가개발 — 의과대 청구서·수리발주의뢰서·간호연장근무합계 연동 양식 단독 개발</span></div>
+        <div class="commit-item" data-type="개발"><span class="ci-type dev"><i class="fas fa-code"></i> 개발</span><span class="ci-domain">자동화</span><span class="ci-text">20,000건 전자문서 HWP 시행일자 vs DB 날짜 자동 비교·검증·수정 Java 툴 단독 개발 — CSV 읽기·HWP 파싱·날짜 정합성 검증·로그 기록 일괄 처리</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">ERP연동</span><span class="ci-text">#146141 그룹웨어 연동문서 전자결재 속도 개선 — tbl_notification 반복문 Insert → Bulk Insert 방식 전환</span></div>
+        <div class="commit-item" data-type="성능"><span class="ci-type perf"><i class="fas fa-tachometer-alt"></i> 성능</span><span class="ci-domain">ERP연동</span><span class="ci-text">연동 시 String 데이터 처리 속도 개선 — StringBuilder 활용 문자열 처리 최적화</span></div>
+        <div class="commit-item" data-type="개선"><span class="ci-type imp"><i class="fas fa-arrow-up"></i> 개선</span><span class="ci-domain">전자결재</span><span class="ci-text">전자결재 &gt; 부서수신함 &gt; 검색 기간 조건에 UTC 시간 적용</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#142551 중간 결재자 이후 참조자 결재 상태 오류 / #143048 mht양식 '확인' 유형 결재자 부재설정 시 직전 결재자 다시 확인 오류 수정</span></div>
+        <div class="commit-item" data-type="오류"><span class="ci-type err"><i class="fas fa-bug"></i> 오류</span><span class="ci-domain">전자결재</span><span class="ci-text">#141569 [JAVA] 임시저장 시 저장이 안되는 오류 수정</span></div>
+
+      </div>
+
+      <button class="cf-more-btn" id="cfMoreBtn">
+        <i class="fas fa-chevron-down"></i> 더 보기
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ERP 연동 고도화 ========== -->
+<section class="erp-section" id="erp">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">SOLO PROJECT · 단독 수행</span>
+      <h2 class="section-title">ERP ↔ 그룹웨어 연동 <span class="accent">고도화</span></h2>
+      <p class="section-sub">요구사항 분석 → 설계 → 개발 → 테스트 → 배포까지 전 라이프사이클을 단독으로 수행</p>
+    </div>
+
+    <div class="solo-banner">
+      <div class="sb-icon"><i class="fas fa-user-cog"></i></div>
+      <div class="sb-text">
+        <strong>Full Development Lifecycle — Solo</strong>
+        <p>고객사와의 요구사항 협의부터 시스템 분석, 설계, 개발, QA, 운영 배포까지 모든 단계를 <em>단독</em>으로 수행했습니다.</p>
+      </div>
+      <div class="sb-badge">단독 수행</div>
+    </div>
+
+    <div class="lifecycle-flow">
+      <div class="lf-step">
+        <i class="fas fa-comments"></i>
+        <span>요구사항 분석</span>
+      </div>
+      <div class="lf-arrow">→</div>
+      <div class="lf-step">
+        <i class="fas fa-drafting-compass"></i>
+        <span>시스템 설계</span>
+      </div>
+      <div class="lf-arrow">→</div>
+      <div class="lf-step">
+        <i class="fas fa-code"></i>
+        <span>개발</span>
+      </div>
+      <div class="lf-arrow">→</div>
+      <div class="lf-step">
+        <i class="fas fa-vial"></i>
+        <span>테스트</span>
+      </div>
+      <div class="lf-arrow">→</div>
+      <div class="lf-step highlight-step">
+        <i class="fas fa-rocket"></i>
+        <span>배포</span>
+      </div>
+    </div>
+
+    <div class="erp-grid">
+      <div class="erp-card">
+        <div class="erp-card-icon"><i class="fas fa-hospital"></i></div>
+        <h4>의료 도메인</h4>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 간호교육행정 시간외수당관리</li>
+          <li><i class="fas fa-check-circle"></i> 의과대학 구매청구서</li>
+          <li><i class="fas fa-check-circle"></i> 의료장비 수리요청서</li>
+          <li><i class="fas fa-check-circle"></i> 비품 수리 청구서</li>
+        </ul>
+      </div>
+      <div class="erp-card">
+        <div class="erp-card-icon"><i class="fas fa-piggy-bank"></i></div>
+        <h4>재무·회계 도메인</h4>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 지출결의서</li>
+          <li><i class="fas fa-check-circle"></i> 분개전표</li>
+          <li><i class="fas fa-check-circle"></i> 여신승인</li>
+          <li><i class="fas fa-check-circle"></i> 자금일보</li>
+        </ul>
+      </div>
+      <div class="erp-card">
+        <div class="erp-card-icon"><i class="fas fa-graduation-cap"></i></div>
+        <h4>교육·행정 도메인</h4>
+        <ul>
+          <li><i class="fas fa-check-circle"></i> 외부 직무 교육 승인 신청서</li>
+          <li><i class="fas fa-check-circle"></i> 기타 행정 양식 다수</li>
+        </ul>
+        <div class="erp-total">총 10건+ 단독 개발</div>
+      </div>
+    </div>
+
+    <div class="perf-improvement">
+      <div class="pi-before">
+        <span class="pi-label">최적화 전</span>
+        <div class="pi-bar-wrap">
+          <div class="pi-bar before-bar"></div>
+          <span>기준 처리 속도</span>
+        </div>
+      </div>
+      <div class="pi-arrow-center"><i class="fas fa-arrow-right"></i> 약 <strong>2배</strong> 향상</div>
+      <div class="pi-after">
+        <span class="pi-label">최적화 후</span>
+        <div class="pi-bar-wrap">
+          <div class="pi-bar after-bar"></div>
+          <span>문자열 처리·메모리 최적화 적용</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">CONTACT</span>
+      <h2 class="section-title">함께 <span class="accent">일해봐요</span></h2>
+      <p class="section-sub">안정성과 성능, 두 마리 토끼를 모두 잡는 개발자와 함께하고 싶다면 연락 주세요.</p>
+    </div>
+    <div class="contact-card">
+      <div class="contact-info">
+        <div class="ci-item">
+          <i class="fas fa-user"></i>
+          <div>
+            <strong>추지호</strong>
+            <span>Backend · Full-Stack Developer</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <i class="fas fa-code"></i>
+          <div>
+            <strong>전문 분야</strong>
+            <span>시스템 안정화 · DB 성능 최적화 · 업무 자동화</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <i class="fas fa-briefcase"></i>
+          <div>
+            <strong>경력</strong>
+            <span>공공 / 금융 / 기업 / 의료 그룹웨어 운영 및 고도화</span>
+          </div>
+        </div>
+      </div>
+      <div class="contact-cta">
+        <div class="cta-message">
+          <i class="fas fa-quote-left"></i>
+          <p>"장애는 0으로, 성능은 2배로 — 시스템을 살아있게 만드는 개발자입니다."</p>
+        </div>
+        <div class="cta-stack">
+          <div class="tech-icon-item sm" title="Java"><i class="devicon-java-plain colored"></i></div>
+          <div class="tech-icon-item sm" title="Spring"><i class="devicon-spring-plain colored"></i></div>
+          <div class="tech-icon-item sm" title="MySQL"><i class="devicon-mysql-plain colored"></i></div>
+          <div class="tech-icon-item sm" title="Linux"><i class="devicon-linux-plain"></i></div>
+          <div class="tech-icon-item sm" title="Apache"><i class="devicon-apache-plain colored"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-name">추지호</span>
+        <span class="logo-bracket">/&gt;</span>
+      </div>
+      <p>© 2025 추지호 · Backend Developer Portfolio · Built with ❤️ and ☕</p>
+      <p class="footer-stack">Java · Spring · MySQL · Oracle · Linux · Apache · Tomcat</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" aria-label="맨 위로">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
