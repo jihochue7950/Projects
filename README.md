@@ -7,7 +7,7 @@
 
 <p align="center">
 
-<a href="https://jihochu.dothome.co.kr" style="font-size: 22px; font-weight: bold; color: #007bff;">
+<a href="https://jihochu.dothome.co.kr" style="font-size: 50px; font-weight: bold; color: #007bff;">
     🌐 포트폴리오 바로가기
 </a>
   <br/>
