@@ -7,9 +7,9 @@
 
 <p align="center">
 
-  <a href="https://jihochu.dothome.co.kr">
-    🌐 <b>포트폴리오 바로가기</b>
-  </a>
+<a href="https://jihochu.dothome.co.kr" style="font-size: 22px; font-weight: bold; color: #007bff;">
+    🌐 포트폴리오 바로가기
+</a>
   <br/>
   🔗 https://jihochu.dothome.co.kr
 </p>
