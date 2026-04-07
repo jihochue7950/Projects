@@ -8,10 +8,9 @@
 <p align="center">
   <a href="https://jihochu.dothome.co.kr">
     🌐 <b>포트폴리오 바로가기</b>
-
-    **## 📂 Portfolio URL
-     🔗 https://jihochu.dothome.co.kr**
   </a>
+     📂 Portfolio URL
+   **🔗 https://jihochu.dothome.co.kr**
 </p>
 
 ---
