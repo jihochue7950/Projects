@@ -5,12 +5,11 @@
   안정적인 시스템 운영과 성능 최적화를 지향합니다.
 </p>
 
-<p align="center">
-
-<a href="https://jihochu.dothome.co.kr" style="font-size: 50px; font-weight: bold; color: #007bff;">
-    🌐 포트폴리오 바로가기
-</a>
+<h1 align="center">
+  <a href="https://jihochu.dothome.co.kr">🌐 포트폴리오 바로가기</a>
+</h1>
   <br/>
+<p align="center">
   🔗 https://jihochu.dothome.co.kr
 </p>
 
